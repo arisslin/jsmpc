@@ -1,26 +1,49 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import styled from 'styled-components/macro'
+import PadSection from './components/PadSection'
 
-function App() {
+export default function App() {
+  const pads = [
+    // Ordered like the pads in real mpc 2000 xl
+    { name: 'Pad 13' },
+    { name: 'Pad 14' },
+    { name: 'Pad 15' },
+    { name: 'Pad 16' },
+    { name: 'Pad 9' },
+    { name: 'Pad 10' },
+    { name: 'Pad 11' },
+    { name: 'Pad 12' },
+    { name: 'Pad 5' },
+    { name: 'Pad 6' },
+    { name: 'Pad 7' },
+    { name: 'Pad 8' },
+    { name: 'Pad 1' },
+    { name: 'Pad 2' },
+    { name: 'Pad 3' },
+    { name: 'Pad 4' },
+  ]
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <AppStyled>
+      <PadSection pads={pads} />
+    </AppStyled>
+  )
 }
 
-export default App;
+const AppStyled = styled.div`
+  display: grid;
+
+  height: 100vh;
+  padding: 10px;
+  background: var(--color-mpc-chassis);
+
+  @media (orientation: landscape) {
+    grid-template-columns: auto 97.5vmin;
+    grid-template-areas: 'control-section pad-section';
+  }
+
+  @media (orientation: portrait) {
+    grid-template-rows: auto 97.5vmin;
+    grid-template-areas: 'control-section' 'pad-section';
+  }
+`
