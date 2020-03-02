@@ -1,6 +1,11 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import styled from 'styled-components/macro'
 import Pad from './Pad'
+
+PadSection.propTypes = {
+  pads: PropTypes.array.isRequired,
+}
 
 export default function PadSection({ pads }) {
   return <PadSectionStyled>{pads.map(pad => addPad(pad))}</PadSectionStyled>
