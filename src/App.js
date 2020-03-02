@@ -12,6 +12,7 @@ function App() {
 
 const AppStyled = styled.div`
   display: grid;
+  grid-template-areas: 'control-section pad-section';
   padding: 10px;
   height: 100vh;
 `

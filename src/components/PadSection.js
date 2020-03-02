@@ -6,6 +6,7 @@ export default function PadSection(props) {
 }
 
 const PadSectionStyled = styled.section`
+  grid-area: pad-section;
   display: block;
   border: 2px solid var(--blue-grey-medium);
   border-radius: 3px;
