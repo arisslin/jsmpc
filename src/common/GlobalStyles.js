@@ -1,6 +1,10 @@
 import { createGlobalStyle } from 'styled-components/macro'
 
 export default createGlobalStyle`
+  :root{
+    --blue-grey-light: #A6ADB5;
+  }
+
   * {
     box-sizing: border-box;
   }
