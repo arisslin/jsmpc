@@ -14,8 +14,6 @@ export default createGlobalStyle`
   body {
     margin: 0;
     font-family: sans-serif;
-    font-size: 16px;
-    height: 100vh;
-    background: var(--color-mpc-chassis);
+    font-size: 16px;    
   }
 `

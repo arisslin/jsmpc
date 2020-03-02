@@ -12,9 +12,11 @@ function App() {
 
 const AppStyled = styled.div`
   display: grid;
+  grid-template-columns: auto 100vmin;
   grid-template-areas: 'control-section pad-section';
-  padding: 10px;
   height: 100vh;
+  padding: 10px;
+  background: var(--color-mpc-chassis);
 `
 
 export default App
