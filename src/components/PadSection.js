@@ -8,10 +8,10 @@ PadSection.propTypes = {
 }
 
 export default function PadSection({ pads }) {
-  return <PadSectionStyled>{pads.map(pad => addPad(pad))}</PadSectionStyled>
+  return <PadSectionStyled>{addPads()}</PadSectionStyled>
 
-  function addPad(pad) {
-    return <Pad key={pad.name} name={pad.name} />
+  function addPads() {
+    return pads.map(pad => <Pad key={pad.name} name={pad.name} />)
   }
 }
 
