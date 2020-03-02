@@ -1,8 +1,28 @@
 import React from 'react'
 import styled from 'styled-components/macro'
+import Pad from './Pad'
 
-export default function PadSection(props) {
-  return <PadSectionStyled>Pad Section</PadSectionStyled>
+export default function PadSection() {
+  return (
+    <PadSectionStyled>
+      <Pad />
+      <Pad />
+      <Pad />
+      <Pad />
+      <Pad />
+      <Pad />
+      <Pad />
+      <Pad />
+      <Pad />
+      <Pad />
+      <Pad />
+      <Pad />
+      <Pad />
+      <Pad />
+      <Pad />
+      <Pad />
+    </PadSectionStyled>
+  )
 }
 
 const PadSectionStyled = styled.section`
