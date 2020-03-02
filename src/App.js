@@ -24,7 +24,7 @@ export default function App() {
   ]
 
   return (
-    <AppStyled className="App">
+    <AppStyled>
       <PadSection pads={pads} />
     </AppStyled>
   )
