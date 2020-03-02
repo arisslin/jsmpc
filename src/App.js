@@ -32,9 +32,18 @@ export default function App() {
 
 const AppStyled = styled.div`
   display: grid;
-  grid-template-columns: auto 100vmin;
-  grid-template-areas: 'control-section pad-section';
+
   height: 100vh;
   padding: 10px;
   background: var(--color-mpc-chassis);
+
+  @media (orientation: landscape) {
+    grid-template-columns: auto 97.5vmin;
+    grid-template-areas: 'control-section pad-section';
+  }
+
+  @media (orientation: portrait) {
+    grid-template-rows: auto 97.5vmin;
+    grid-template-areas: 'control-section' 'pad-section';
+  }
 `
