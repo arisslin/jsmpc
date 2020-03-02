@@ -2,27 +2,12 @@ import React from 'react'
 import styled from 'styled-components/macro'
 import Pad from './Pad'
 
-export default function PadSection() {
-  return (
-    <PadSectionStyled>
-      <Pad />
-      <Pad />
-      <Pad />
-      <Pad />
-      <Pad />
-      <Pad />
-      <Pad />
-      <Pad />
-      <Pad />
-      <Pad />
-      <Pad />
-      <Pad />
-      <Pad />
-      <Pad />
-      <Pad />
-      <Pad />
-    </PadSectionStyled>
-  )
+export default function PadSection({ pads }) {
+  return <PadSectionStyled>{pads.map(pad => addPadd(pad))}</PadSectionStyled>
+
+  function addPadd(pad) {
+    return <Pad key={pad.name} name={pad.name} />
+  }
 }
 
 const PadSectionStyled = styled.section`

@@ -1,8 +1,8 @@
 import React from 'react'
 import styled from 'styled-components/macro'
 
-export default function Pad(props) {
-  return <PadStyled />
+export default function Pad({ name }) {
+  return <PadStyled>{name}</PadStyled>
 }
 
 const PadStyled = styled.div`
