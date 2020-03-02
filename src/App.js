@@ -4,22 +4,23 @@ import PadSection from './components/PadSection'
 
 export default function App() {
   const pads = [
-    { name: 'Pad 1' },
-    { name: 'Pad 2' },
-    { name: 'Pad 3' },
-    { name: 'Pad 4' },
-    { name: 'Pad 5' },
-    { name: 'Pad 6' },
-    { name: 'Pad 7' },
-    { name: 'Pad 8' },
-    { name: 'Pad 9' },
-    { name: 'Pad 10' },
-    { name: 'Pad 11' },
-    { name: 'Pad 12' },
+    // Ordered like the pads in real mpc 2000 xl
     { name: 'Pad 13' },
     { name: 'Pad 14' },
     { name: 'Pad 15' },
     { name: 'Pad 16' },
+    { name: 'Pad 9' },
+    { name: 'Pad 10' },
+    { name: 'Pad 11' },
+    { name: 'Pad 12' },
+    { name: 'Pad 5' },
+    { name: 'Pad 6' },
+    { name: 'Pad 7' },
+    { name: 'Pad 8' },
+    { name: 'Pad 1' },
+    { name: 'Pad 2' },
+    { name: 'Pad 3' },
+    { name: 'Pad 4' },
   ]
 
   return (
