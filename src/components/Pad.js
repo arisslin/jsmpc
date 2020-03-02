@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components/macro'
 
 Pad.propTypes = {
-  name: PropTypes.string,
+  name: PropTypes.string.isRequired,
 }
 
 export default function Pad({ name }) {
