@@ -2,7 +2,9 @@ import { createGlobalStyle } from 'styled-components/macro'
 
 export default createGlobalStyle`
   :root{
+    --color-mpc-chassis: #E8E8E8;
     --blue-grey-light: #A6ADB5;
+    --blue-grey-medium: #7A8490;
   }
 
   * {
@@ -14,5 +16,6 @@ export default createGlobalStyle`
     font-family: sans-serif;
     font-size: 16px;
     height: 100vh;
+    background: var(--color-mpc-chassis);
   }
 `
