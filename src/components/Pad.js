@@ -3,7 +3,11 @@ import styled from 'styled-components/macro'
 
 export default function Pad({ name }) {
   return (
-    <PadStyled>
+    <PadStyled
+      onClick={event => {
+        console.log(name)
+      }}
+    >
       <span>{name}</span>
     </PadStyled>
   )
