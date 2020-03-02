@@ -1,4 +1,4 @@
-#jsmpc
+# jsmpc
 
 A webbased mpc-style drum machine.
 
