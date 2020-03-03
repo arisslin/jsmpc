@@ -34,16 +34,16 @@ const AppStyled = styled.div`
   display: grid;
 
   height: 100vh;
-  padding: 10px;
+  padding: var(--pad-section-padding);
   background: var(--color-mpc-chassis);
 
   @media (orientation: landscape) {
-    grid-template-columns: auto 97.5vmin;
+    grid-template-columns: auto calc(100vmin - var(--pad-section-padding) * 2); /* component has square form */
     grid-template-areas: 'control-section pad-section';
   }
 
   @media (orientation: portrait) {
-    grid-template-rows: auto 97.5vmin;
+    grid-template-rows: auto calc(100vmin - var(--pad-section-padding) * 2); /* component has square form */
     grid-template-areas: 'control-section' 'pad-section';
   }
 `
