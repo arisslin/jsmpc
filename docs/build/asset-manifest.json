@@ -1,0 +1,35 @@
+{
+  "files": {
+    "main.js": "/static/js/main.371854bf.chunk.js",
+    "main.js.map": "/static/js/main.371854bf.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.432f846a.js",
+    "runtime-main.js.map": "/static/js/runtime-main.432f846a.js.map",
+    "static/js/2.b57cf342.chunk.js": "/static/js/2.b57cf342.chunk.js",
+    "static/js/2.b57cf342.chunk.js.map": "/static/js/2.b57cf342.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.bb80d05eeb501efb8f7d8cd2bdad7c2a.js": "/precache-manifest.bb80d05eeb501efb8f7d8cd2bdad7c2a.js",
+    "service-worker.js": "/service-worker.js",
+    "static/js/2.b57cf342.chunk.js.LICENSE.txt": "/static/js/2.b57cf342.chunk.js.LICENSE.txt",
+    "static/media/Clap808.wav": "/static/media/Clap808.848dbc3f.wav",
+    "static/media/Clave808.wav": "/static/media/Clave808.57a079e5.wav",
+    "static/media/ClosedHH808.wav": "/static/media/ClosedHH808.7d30054f.wav",
+    "static/media/Cowbell808.wav": "/static/media/Cowbell808.144a4c6d.wav",
+    "static/media/Crash808.wav": "/static/media/Crash808.039b2daf.wav",
+    "static/media/HiConga808.wav": "/static/media/HiConga808.5bcca160.wav",
+    "static/media/HiTom808.wav": "/static/media/HiTom808.3b19b79c.wav",
+    "static/media/Kick808_1.wav": "/static/media/Kick808_1.e9505dc8.wav",
+    "static/media/Kick808_2.wav": "/static/media/Kick808_2.9766e751.wav",
+    "static/media/LowConga808.wav": "/static/media/LowConga808.a9a68790.wav",
+    "static/media/LowTom808.wav": "/static/media/LowTom808.5cfb29ce.wav",
+    "static/media/OpenHH808.wav": "/static/media/OpenHH808.a46a6e9a.wav",
+    "static/media/Rimshot808.wav": "/static/media/Rimshot808.b5892d28.wav",
+    "static/media/Shaker808.wav": "/static/media/Shaker808.f2b8fd67.wav",
+    "static/media/Snare808_1.wav": "/static/media/Snare808_1.398b69ed.wav",
+    "static/media/Snare808_2.wav": "/static/media/Snare808_2.13b891cb.wav"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.432f846a.js",
+    "static/js/2.b57cf342.chunk.js",
+    "static/js/main.371854bf.chunk.js"
+  ]
+}
