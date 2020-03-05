@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components/macro'
+import { Player } from 'tone'
 
 Pad.propTypes = {
   name: PropTypes.string.isRequired,
@@ -8,10 +9,12 @@ Pad.propTypes = {
 }
 
 export default function Pad({ name, url }) {
+  const player = new Player(url).toMaster()
+
   return (
     <PadStyled
       onClick={event => {
-        console.log(name)
+        player.start()
       }}
     >
       <span>{name}</span>
