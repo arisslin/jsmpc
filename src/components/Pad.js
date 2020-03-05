@@ -5,16 +5,16 @@ import { Player } from 'tone'
 
 Pad.propTypes = {
   name: PropTypes.string.isRequired,
-  url: PropTypes.string.isRequired,
+  soundUrl: PropTypes.string.isRequired,
 }
 
-export default function Pad({ name, url }) {
-  const player = new Player(url).toMaster()
+export default function Pad({ name, soundUrl }) {
+  const padPlayer = new Player(soundUrl).toMaster()
 
   return (
     <PadStyled
-      onClick={event => {
-        player.start()
+      onClick={() => {
+        padPlayer.start()
       }}
     >
       <span>{name}</span>
