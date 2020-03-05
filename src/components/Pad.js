@@ -4,9 +4,10 @@ import styled from 'styled-components/macro'
 
 Pad.propTypes = {
   name: PropTypes.string.isRequired,
+  url: PropTypes.string.isRequired,
 }
 
-export default function Pad({ name }) {
+export default function Pad({ name, url }) {
   return (
     <PadStyled
       onClick={event => {
