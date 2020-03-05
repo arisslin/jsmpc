@@ -1,4 +1,4 @@
-export const pads = [
+export const padsData = [
   // Ordered like the pads in real mpc 2000 xl
   { name: 'Pad 13', url: require('../media/sounds/808kit/OpenHH808.wav') },
   { name: 'Pad 14', url: require('../media/sounds/808kit/Rimshot808.wav') },
