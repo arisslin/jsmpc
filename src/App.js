@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components/macro'
-import { pads } from './assets/pads'
+import { pads } from './common/pads'
 import PadSection from './components/PadSection'
 
 export default function App() {
