@@ -11,7 +11,9 @@ export default function PadSection({ pads }) {
   return <PadSectionStyled>{addPads()}</PadSectionStyled>
 
   function addPads() {
-    return pads.map(pad => <Pad key={pad.name} name={pad.name} />)
+    return pads.map(pad => (
+      <Pad key={pad.name} name={pad.name} soundUrl={pad.url} />
+    ))
   }
 }
 

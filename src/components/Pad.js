@@ -1,16 +1,20 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components/macro'
+import { Player } from 'tone'
 
 Pad.propTypes = {
   name: PropTypes.string.isRequired,
+  soundUrl: PropTypes.string.isRequired,
 }
 
-export default function Pad({ name }) {
+export default function Pad({ name, soundUrl }) {
+  const padPlayer = new Player(soundUrl).toMaster()
+
   return (
     <PadStyled
-      onClick={event => {
-        console.log(name)
+      onClick={() => {
+        padPlayer.start()
       }}
     >
       <span>{name}</span>
