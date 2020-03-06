@@ -5,7 +5,7 @@ import { Player } from 'tone'
 
 Pad.propTypes = {
   name: PropTypes.string.isRequired,
-  soundUrl: PropTypes.string.isRequired,
+  soundUrl: PropTypes.string,
 }
 
 export default function Pad({ name, soundUrl }) {
