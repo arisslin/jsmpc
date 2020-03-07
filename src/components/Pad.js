@@ -5,7 +5,7 @@ import { Player } from 'tone'
 
 Pad.propTypes = {
   name: PropTypes.string.isRequired,
-  soundUrl: PropTypes.string.isRequired,
+  soundUrl: PropTypes.string,
 }
 
 export default function Pad({ name, soundUrl }) {
@@ -13,13 +13,22 @@ export default function Pad({ name, soundUrl }) {
 
   return (
     <PadStyled
-      onClick={() => {
+      onTouchStart={() => {
+        padPlayer.start()
+      }}
+      onTouchEnd={stopPinchZooming}
+      onMouseDown={() => {
         padPlayer.start()
       }}
     >
       <span>{name}</span>
     </PadStyled>
   )
+}
+
+function stopPinchZooming(event) {
+  // Stops the browser zooming when double tab on mobile devices
+  event.preventDefault()
 }
 
 const PadStyled = styled.div`
