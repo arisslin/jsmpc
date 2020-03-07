@@ -12,10 +12,23 @@ export default function Pad({ name, soundUrl }) {
   const padPlayer = new Player(soundUrl).toMaster()
 
   return (
-    <PadStyled onClick={() => padPlayer.start()}>
+    <PadStyled
+      onTouchStart={() => {
+        padPlayer.start()
+      }}
+      onTouchEnd={stopPinchZooming}
+      onMouseDown={() => {
+        padPlayer.start()
+      }}
+    >
       <span>{name}</span>
     </PadStyled>
   )
+}
+
+function stopPinchZooming(event) {
+  // Stops the browser zooming when double tab on mobile devices
+  event.preventDefault()
 }
 
 const PadStyled = styled.div`
@@ -30,5 +43,6 @@ const PadStyled = styled.div`
     top: -0.7rem;
     font-size: 0.5rem;
     color: #3d4448;
+    cursor: default;
   }
 `
