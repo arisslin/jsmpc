@@ -43,7 +43,5 @@ const PadStyled = styled.div`
     top: -0.7rem;
     font-size: 0.5rem;
     color: #3d4448;
-    cursor: default;
-    user-select: none;
   }
 `
