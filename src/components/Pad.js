@@ -12,11 +12,7 @@ export default function Pad({ name, soundUrl }) {
   const padPlayer = new Player(soundUrl).toMaster()
 
   return (
-    <PadStyled
-      onClick={() => {
-        padPlayer.start()
-      }}
-    >
+    <PadStyled onClick={() => padPlayer.start()}>
       <span>{name}</span>
     </PadStyled>
   )
