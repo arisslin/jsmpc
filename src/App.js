@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components/macro'
 import { padsData } from './common/padsData'
+import { samplePlayer } from './common/samplePlayer'
 import PadSection from './components/Pad/PadSection'
 
 export default function App() {
