@@ -2,18 +2,22 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components/macro'
 import Pad from './Pad'
+import { createKeyFromString } from '../../common/utils'
 
 PadSection.propTypes = {
   pads: PropTypes.array.isRequired,
+  samplePlayer: PropTypes.object.isRequired,
 }
 
-export default function PadSection({ pads }) {
+export default function PadSection({ pads, samplePlayer }) {
   return <PadSectionStyled>{addPads()}</PadSectionStyled>
 
   function addPads() {
-    return pads.map(pad => (
-      <Pad key={pad.name} name={pad.name} soundUrl={pad.url} />
-    ))
+    return pads.map(pad => {
+      const key = createKeyFromString(pad.name)
+      const player = samplePlayer.get(key)
+      return <Pad key={key} name={pad.name} player={player} />
+    })
   }
 }
 

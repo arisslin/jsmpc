@@ -1,24 +1,21 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components/macro'
-//import { Player } from 'tone'
 
 Pad.propTypes = {
   name: PropTypes.string.isRequired,
-  soundUrl: PropTypes.string,
+  player: PropTypes.object,
 }
 
-export default function Pad({ name, soundUrl }) {
-  //const padPlayer = new Player(soundUrl).toMaster()
-
+export default function Pad({ name, player }) {
   return (
     <PadStyled
       onTouchStart={() => {
-        //padPlayer.start()
+        player.start()
       }}
       onTouchEnd={stopPinchZooming}
       onMouseDown={() => {
-        //padPlayer.start()
+        player.start()
       }}
     >
       <span>{name}</span>

@@ -7,7 +7,7 @@ import PadSection from './components/Pad/PadSection'
 export default function App() {
   return (
     <AppStyled>
-      <PadSection pads={padsData} />
+      <PadSection pads={padsData} samplePlayer={samplePlayer} />
     </AppStyled>
   )
 }
