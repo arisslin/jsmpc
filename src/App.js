@@ -12,19 +12,17 @@ export default function App() {
 }
 
 const AppStyled = styled.div`
-  display: grid;
-
+  display: flex;
   height: 100vh;
   padding: var(--pad-section-padding);
   background: var(--color-mpc-chassis);
+  justify-content: center;
 
   @media (orientation: landscape) {
-    grid-template-columns: auto calc(100vmin - var(--pad-section-padding) * 2); /* component has square form */
-    grid-template-areas: 'control-section pad-section';
+    flex-direction: row;
   }
 
   @media (orientation: portrait) {
-    grid-template-rows: auto calc(100vmin - var(--pad-section-padding) * 2); /* component has square form */
-    grid-template-areas: 'control-section' 'pad-section';
+    flex-direction: column;
   }
 `

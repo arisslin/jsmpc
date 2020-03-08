@@ -27,4 +27,14 @@ const PadSectionStyled = styled.section`
   border: 2px solid var(--blue-grey-medium);
   border-radius: 3px;
   background-color: var(--blue-grey-light);
+
+  @media (orientation: landscape) {
+    height: 100%;
+    width: calc(100vmin - var(--pad-section-padding) * 2);
+  }
+
+  @media (orientation: portrait) {
+    width: 100%;
+    height: calc(100vmin - var(--pad-section-padding) * 2);
+  }
 `
