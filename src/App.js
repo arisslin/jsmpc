@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components/macro'
 import { padsData } from './common/padsData'
-import PadSection from './components/PadSection'
+import PadSection from './components/Pad/PadSection'
 
 export default function App() {
   return (
