@@ -1,30 +1,29 @@
 import React from 'react'
 import styled from 'styled-components/macro'
 import { padsData } from './common/padsData'
-import PadSection from './components/PadSection'
+import { samplePlayer } from './common/samplePlayer'
+import PadSection from './components/Pad/PadSection'
 
 export default function App() {
   return (
     <AppStyled>
-      <PadSection pads={padsData} />
+      <PadSection pads={padsData} samplePlayer={samplePlayer} />
     </AppStyled>
   )
 }
 
 const AppStyled = styled.div`
-  display: grid;
-
+  display: flex;
   height: 100vh;
   padding: var(--pad-section-padding);
   background: var(--color-mpc-chassis);
+  justify-content: center;
 
   @media (orientation: landscape) {
-    grid-template-columns: auto calc(100vmin - var(--pad-section-padding) * 2); /* component has square form */
-    grid-template-areas: 'control-section pad-section';
+    flex-direction: row;
   }
 
   @media (orientation: portrait) {
-    grid-template-rows: auto calc(100vmin - var(--pad-section-padding) * 2); /* component has square form */
-    grid-template-areas: 'control-section' 'pad-section';
+    flex-direction: column;
   }
 `

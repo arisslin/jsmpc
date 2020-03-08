@@ -22,7 +22,5 @@ export default createGlobalStyle`
     font-family: sans-serif;
     font-size: 16px;
     overflow: hidden;
-    cursor: default;
-    user-select: none;
   }
 `
