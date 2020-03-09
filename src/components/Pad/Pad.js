@@ -6,9 +6,10 @@ Pad.propTypes = {
   name: PropTypes.string.isRequired,
   handlePadTrigger: PropTypes.func.isRequired,
   player: PropTypes.object,
+  isTriggered: PropTypes.bool.isRequired,
 }
 
-export default function Pad({ name, handlePadTrigger, player }) {
+export default function Pad({ name, handlePadTrigger, player, isTriggered }) {
   return (
     <PadStyled
       onTouchStart={() => {
@@ -18,6 +19,7 @@ export default function Pad({ name, handlePadTrigger, player }) {
       onMouseDown={() => {
         handlePadTrigger(player)
       }}
+      isTriggered={isTriggered}
     >
       <span>{name}</span>
     </PadStyled>
@@ -31,10 +33,15 @@ function stopPinchZooming(event) {
 
 const PadStyled = styled.div`
   position: relative;
-  border: 2px solid var(--color-dark);
+  border: 2px solid;
+  border-color: ${props =>
+    props.isTriggered ? 'var(--color-pad-triggered)' : 'var(--color-dark)'};
   border-radius: 3px;
   background-color: var(--color-pad-grey);
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: ${props =>
+    props.isTriggered
+      ? '0 1px 4px 0 rgba(199, 36, 0, 0.2)'
+      : '0 1px 3px 0 rgba(0, 0, 0, 0.2)'};
   cursor: pointer;
   user-select: none;
 
@@ -43,9 +50,5 @@ const PadStyled = styled.div`
     top: -0.7rem;
     font-size: 0.5rem;
     color: #3d4448;
-  }
-
-  .active {
-    backgroundcolor: red;
   }
 `

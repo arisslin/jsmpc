@@ -23,6 +23,7 @@ export default function PadSection({ pads, handlePadTrigger, samplePlayer }) {
           name={pad.name}
           handlePadTrigger={handlePadTrigger}
           player={player}
+          isTriggered={pad.isTriggered}
         />
       )
     })
