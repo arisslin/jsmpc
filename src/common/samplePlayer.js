@@ -11,9 +11,13 @@ export function triggerPadByKey(key) {
     if (padData.key === key) {
       const padName = createKeyFromString(padData.name)
       const player = samplePlayer.get(padName)
-      player.start()
+      handlePadTrigger(player)
     }
   })
+}
+
+export function handlePadTrigger(player) {
+  player.start()
 }
 
 function createPadsUrlObject(padsData) {

@@ -1,7 +1,11 @@
 import React, { useState } from 'react'
 import styled from 'styled-components/macro'
 import { padsData } from './common/padsData'
-import { samplePlayer, triggerPadByKey } from './common/samplePlayer'
+import {
+  samplePlayer,
+  triggerPadByKey,
+  handlePadTrigger,
+} from './common/samplePlayer'
 import PadSection from './components/Pad/PadSection'
 
 export default function App() {
@@ -21,11 +25,6 @@ export default function App() {
       />
     </AppStyled>
   )
-
-  function handlePadTrigger(player) {
-    console.log('Touch')
-    player.start()
-  }
 }
 
 const AppStyled = styled.div`
