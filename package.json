@@ -20,7 +20,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build && cp -r build docs",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -38,6 +40,12 @@
     ]
   },
   "devDependencies": {
+    "@babel/core": "7.8.7",
+    "@storybook/addon-actions": "5.3.14",
+    "@storybook/addon-links": "5.3.14",
+    "@storybook/addons": "5.3.14",
+    "@storybook/react": "5.3.14",
+    "babel-loader": "8.0.6",
     "gh-pages": "2.2.0"
   }
 }
