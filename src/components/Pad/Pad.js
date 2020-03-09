@@ -4,20 +4,20 @@ import styled from 'styled-components/macro'
 
 Pad.propTypes = {
   name: PropTypes.string.isRequired,
-  handlePadTrigger: PropTypes.func.isRequired,
+  onTouch: PropTypes.func.isRequired,
   player: PropTypes.object,
   isTriggered: PropTypes.bool.isRequired,
 }
 
-export default function Pad({ name, handlePadTrigger, player, isTriggered }) {
+export default function Pad({ name, onTouch, player, isTriggered }) {
   return (
     <PadStyled
       onTouchStart={() => {
-        handlePadTrigger(player)
+        onTouch(player)
       }}
       onTouchEnd={stopPinchZooming}
       onMouseDown={() => {
-        handlePadTrigger(player)
+        onTouch(player)
       }}
       isTriggered={isTriggered}
     >

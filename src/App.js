@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import styled from 'styled-components/macro'
+import { padPlayer, playPadByKey, playPadByTouch } from './common/padPlayer'
 import { padsData } from './common/padsData'
-import { handlePadTrigger, playPadByKey, padPlayer } from './common/padPlayer'
 import { getPadIndexByKey, replaceDataArrayCopy } from './common/utils'
 import PadSection from './components/Pad/PadSection'
 
@@ -12,7 +12,7 @@ export default function App() {
     <AppStyled onKeyDown={onKeyDown} onKeyUp={onKeyUp} tabIndex="0">
       <PadSection
         pads={padsAttributes}
-        handlePadTrigger={handlePadTrigger}
+        handlePadTouch={playPadByTouch}
         padPlayer={padPlayer}
       />
     </AppStyled>

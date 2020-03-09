@@ -11,12 +11,12 @@ export function playPadByKey(key, padsAttributes) {
     if (padAttributes.key === key) {
       const padName = createKeyFromString(padAttributes.name)
       const player = padPlayer.get(padName)
-      handlePadTrigger(player)
+      player.start()
     }
   })
 }
 
-export function handlePadTrigger(player) {
+export function playPadByTouch(player) {
   player.start()
 }
 
