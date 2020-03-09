@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components/macro'
 import { padsData } from './common/padsData'
-import { samplePlayer } from './common/samplePlayer'
+import { samplePlayer, triggerPadByKey } from './common/samplePlayer'
 import PadSection from './components/Pad/PadSection'
 import { createKeyFromString } from './common/utils'
 
@@ -14,11 +14,14 @@ export default function App() {
 }
 
 window.addEventListener('keydown', event => {
+  const key = event.key
   padsData.forEach(padData => {
-    if (padData.key === event.key) {
-      const pad = createKeyFromString(padData.name)
-      const player = samplePlayer.get(pad)
-      player.start()
+    const padKey = padData.key
+    console.log(padKey)
+
+    if (padKey === key) {
+      const padName = createKeyFromString(padData.name)
+      triggerPadByKey(padName)
     }
   })
 })
