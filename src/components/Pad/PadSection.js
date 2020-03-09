@@ -6,17 +6,25 @@ import { createKeyFromString } from '../../common/utils'
 
 PadSection.propTypes = {
   pads: PropTypes.array.isRequired,
+  handlePadTrigger: PropTypes.func.isRequired,
   samplePlayer: PropTypes.object.isRequired,
 }
 
-export default function PadSection({ pads, samplePlayer }) {
+export default function PadSection({ pads, handlePadTrigger, samplePlayer }) {
   return <PadSectionStyled>{addPads()}</PadSectionStyled>
 
   function addPads() {
     return pads.map(pad => {
       const key = createKeyFromString(pad.name)
       const player = samplePlayer.get(key)
-      return <Pad key={key} name={pad.name} player={player} />
+      return (
+        <Pad
+          key={key}
+          name={pad.name}
+          handlePadTrigger={handlePadTrigger}
+          player={player}
+        />
+      )
     })
   }
 }

@@ -1,21 +1,32 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components/macro'
 import { padsData } from './common/padsData'
 import { samplePlayer, triggerPadByKey } from './common/samplePlayer'
 import PadSection from './components/Pad/PadSection'
 
 export default function App() {
+  const [padAttributes, setPadAttributes] = useState(padsData)
+
+  window.addEventListener('keydown', event => {
+    const key = event.key
+    triggerPadByKey(key)
+  })
+
   return (
     <AppStyled>
-      <PadSection pads={padsData} samplePlayer={samplePlayer} />
+      <PadSection
+        pads={padAttributes}
+        handlePadTrigger={handlePadTrigger}
+        samplePlayer={samplePlayer}
+      />
     </AppStyled>
   )
-}
 
-window.addEventListener('keydown', event => {
-  const key = event.key
-  triggerPadByKey(key)
-})
+  function handlePadTrigger(player) {
+    console.log('Touch')
+    player.start()
+  }
+}
 
 const AppStyled = styled.div`
   display: flex;
