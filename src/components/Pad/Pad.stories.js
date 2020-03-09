@@ -4,7 +4,7 @@ import Pad from './Pad'
 import GlobalStyles from '../../common/GlobalStyles'
 
 export default {
-  title: 'Pad',
+  title: 'Pads',
   component: Pad,
 }
 
