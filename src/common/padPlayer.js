@@ -4,13 +4,13 @@ import { createKeyFromString } from './utils'
 
 const padsUrl = createPadsUrlObject(padsData)
 
-export const samplePlayer = new Players(padsUrl).toMaster()
+export const padPlayer = new Players(padsUrl).toMaster()
 
 export function playPadByKey(key, padsAttributes) {
   padsAttributes.forEach(padAttributes => {
     if (padAttributes.key === key) {
       const padName = createKeyFromString(padAttributes.name)
-      const player = samplePlayer.get(padName)
+      const player = padPlayer.get(padName)
       handlePadTrigger(player)
     }
   })

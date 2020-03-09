@@ -1,11 +1,7 @@
 import React, { useState } from 'react'
 import styled from 'styled-components/macro'
 import { padsData } from './common/padsData'
-import {
-  handlePadTrigger,
-  playPadByKey,
-  samplePlayer,
-} from './common/samplePlayer'
+import { handlePadTrigger, playPadByKey, padPlayer } from './common/padPlayer'
 import { getPadIndexByKey, replaceDataArrayCopy } from './common/utils'
 import PadSection from './components/Pad/PadSection'
 
@@ -17,7 +13,7 @@ export default function App() {
       <PadSection
         pads={padsAttributes}
         handlePadTrigger={handlePadTrigger}
-        samplePlayer={samplePlayer}
+        padPlayer={padPlayer}
       />
     </AppStyled>
   )
@@ -30,17 +26,10 @@ export default function App() {
 
   function changePadBorderColor(key, padsAttributes) {
     const index = getPadIndexByKey(key, padsAttributes)
-
     if (index > -1) {
-      const copy = { ...padsAttributes[index] }
-      copy.isTriggered = !copy.isTriggered
-
-      const newPadsAttributes = replaceDataArrayCopy(
-        padsAttributes,
-        copy,
-        index
-      )
-
+      const pad = { ...padsAttributes[index] }
+      pad.isTriggered = !pad.isTriggered
+      const newPadsAttributes = replaceDataArrayCopy(padsAttributes, pad, index)
       setPadAttributes(newPadsAttributes)
     }
   }
