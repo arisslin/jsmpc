@@ -6,10 +6,10 @@ import { getPadIndexByKey, replaceDataArrayCopy } from './common/utils'
 import PadSection from './components/Pad/PadSection'
 
 export default function App() {
-  const [padsAttributes, setPadAttributes] = useState(padsData)
+  const [padsAttributes, setPadsAttributes] = useState(padsData)
 
   return (
-    <AppStyled onKeyDown={onKeyDown} tabIndex="0">
+    <AppStyled onKeyDown={onKeyDown} onKeyUp={onKeyUp} tabIndex="0">
       <PadSection
         pads={padsAttributes}
         handlePadTrigger={handlePadTrigger}
@@ -21,16 +21,21 @@ export default function App() {
   function onKeyDown(event) {
     const key = event.key
     playPadByKey(key, padsAttributes)
-    changePadBorderColor(key, padsAttributes)
+    setPadTriggerStatus(key, padsAttributes, true)
   }
 
-  function changePadBorderColor(key, padsAttributes) {
+  function onKeyUp(event) {
+    const key = event.key
+    setPadTriggerStatus(key, padsAttributes, false)
+  }
+
+  function setPadTriggerStatus(key, padsAttributes, isTriggered) {
     const index = getPadIndexByKey(key, padsAttributes)
     if (index > -1) {
       const pad = { ...padsAttributes[index] }
-      pad.isTriggered = !pad.isTriggered
+      pad.isTriggered = isTriggered
       const newPadsAttributes = replaceDataArrayCopy(padsAttributes, pad, index)
-      setPadAttributes(newPadsAttributes)
+      setPadsAttributes(newPadsAttributes)
     }
   }
 }
