@@ -3,28 +3,46 @@ import styled from 'styled-components/macro'
 import { padsData } from './common/padsData'
 import {
   samplePlayer,
-  triggerPadByKey,
+  playPadByKey,
   handlePadTrigger,
 } from './common/samplePlayer'
 import PadSection from './components/Pad/PadSection'
+import { getPadIndexByKey } from './common/utils'
 
 export default function App() {
-  const [padAttributes, setPadAttributes] = useState(padsData)
-
-  window.addEventListener('keydown', event => {
-    const key = event.key
-    triggerPadByKey(key)
-  })
+  const [padsAttributes, setPadAttributes] = useState(padsData)
 
   return (
-    <AppStyled>
+    <AppStyled onKeyDown={onKeyDown} tabIndex="0">
       <PadSection
-        pads={padAttributes}
+        pads={padsAttributes}
         handlePadTrigger={handlePadTrigger}
         samplePlayer={samplePlayer}
       />
     </AppStyled>
   )
+
+  function onKeyDown(event) {
+    const key = event.key
+    playPadByKey(key, padsAttributes)
+    changePadBorderColor(key, padsAttributes)
+  }
+
+  function changePadBorderColor(key, padsAttributes) {
+    const index = getPadIndexByKey(key, padsAttributes)
+
+    if (index > -1) {
+      const copy = { ...padsAttributes[index] }
+      copy.isTriggered = !copy.isTriggered
+      const newArray = [
+        ...padsAttributes.slice(0, index),
+        copy,
+        ...padsAttributes.slice(index + 1),
+      ]
+
+      setPadAttributes(newArray)
+    }
+  }
 }
 
 const AppStyled = styled.div`
