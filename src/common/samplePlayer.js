@@ -1,6 +1,6 @@
 import { Players } from 'tone'
-import { createKeyFromString } from './utils'
 import { padsData } from './padsData'
+import { createKeyFromString } from './utils'
 
 const padsUrl = createPadsUrlObject(padsData)
 

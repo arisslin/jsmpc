@@ -2,12 +2,12 @@ import React, { useState } from 'react'
 import styled from 'styled-components/macro'
 import { padsData } from './common/padsData'
 import {
-  samplePlayer,
-  playPadByKey,
   handlePadTrigger,
+  playPadByKey,
+  samplePlayer,
 } from './common/samplePlayer'
+import { getPadIndexByKey, replaceDataArrayCopy } from './common/utils'
 import PadSection from './components/Pad/PadSection'
-import { getPadIndexByKey } from './common/utils'
 
 export default function App() {
   const [padsAttributes, setPadAttributes] = useState(padsData)
@@ -34,13 +34,14 @@ export default function App() {
     if (index > -1) {
       const copy = { ...padsAttributes[index] }
       copy.isTriggered = !copy.isTriggered
-      const newArray = [
-        ...padsAttributes.slice(0, index),
-        copy,
-        ...padsAttributes.slice(index + 1),
-      ]
 
-      setPadAttributes(newArray)
+      const newPadsAttributes = replaceDataArrayCopy(
+        padsAttributes,
+        copy,
+        index
+      )
+
+      setPadAttributes(newPadsAttributes)
     }
   }
 }
