@@ -12,7 +12,8 @@ export default function App() {
     <AppStyled onKeyDown={onKeyDown} onKeyUp={onKeyUp} tabIndex="0">
       <PadSection
         pads={padsAttributes}
-        handlePadTouch={playPadByTouch}
+        handlePadTouchStart={playPadByTouch}
+        handlePadTouchEnd={handlePadTouchEnd}
         padPlayer={padPlayer}
       />
     </AppStyled>
@@ -27,6 +28,10 @@ export default function App() {
   function onKeyUp(event) {
     const key = event.key
     setPadTriggerStatus(key, padsAttributes, false)
+  }
+
+  function handlePadTouchEnd() {
+    //...hier weiter machen
   }
 
   function setPadTriggerStatus(key, padsAttributes, isTriggered) {

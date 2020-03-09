@@ -6,11 +6,17 @@ import { createKeyFromString } from '../../common/utils'
 
 PadSection.propTypes = {
   pads: PropTypes.array.isRequired,
-  handlePadTouch: PropTypes.func.isRequired,
+  handlePadTouchStart: PropTypes.func.isRequired,
+  handlePadTouchEnd: PropTypes.func.isRequired,
   padPlayer: PropTypes.object.isRequired,
 }
 
-export default function PadSection({ pads, handlePadTouch, padPlayer }) {
+export default function PadSection({
+  pads,
+  handlePadTouchStart,
+  handlePadTouchEnd,
+  padPlayer,
+}) {
   return <PadSectionStyled>{addPads()}</PadSectionStyled>
 
   function addPads() {
@@ -21,7 +27,7 @@ export default function PadSection({ pads, handlePadTouch, padPlayer }) {
         <Pad
           key={key}
           name={pad.name}
-          onTouchStart={handlePadTouch}
+          onTouchStart={handlePadTouchStart}
           player={player}
           isTriggered={pad.isTriggered}
         />
