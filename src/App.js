@@ -3,6 +3,7 @@ import styled from 'styled-components/macro'
 import { padsData } from './common/padsData'
 import { samplePlayer } from './common/samplePlayer'
 import PadSection from './components/Pad/PadSection'
+import { createKeyFromString } from './common/utils'
 
 export default function App() {
   return (
@@ -11,6 +12,16 @@ export default function App() {
     </AppStyled>
   )
 }
+
+window.addEventListener('keydown', event => {
+  padsData.forEach(padData => {
+    if (padData.key === event.key) {
+      const pad = createKeyFromString(padData.name)
+      const player = samplePlayer.get(pad)
+      player.start()
+    }
+  })
+})
 
 const AppStyled = styled.div`
   display: flex;
