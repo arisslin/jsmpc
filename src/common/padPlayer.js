@@ -2,9 +2,9 @@ import { Players } from 'tone'
 import { padsData } from './padsData'
 import { createKeyFromString } from './utils'
 
-const padsUrl = createPadsUrlObject(padsData)
+const padUrls = createPadUrlObjects(padsData)
 
-export const padPlayer = new Players(padsUrl).toMaster()
+export const padPlayer = new Players(padUrls).toMaster()
 
 export function playPadByKey(key, padsAttributes) {
   padsAttributes.forEach(padAttributes => {
@@ -20,7 +20,7 @@ export function playPadByTouch(player) {
   player.start()
 }
 
-function createPadsUrlObject(padsData) {
+function createPadUrlObjects(padsData) {
   const output = {}
   padsData.forEach(pad => {
     const key = createKeyFromString(pad.name)

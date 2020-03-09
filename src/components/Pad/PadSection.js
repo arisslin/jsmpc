@@ -21,7 +21,7 @@ export default function PadSection({ pads, handlePadTouch, padPlayer }) {
         <Pad
           key={key}
           name={pad.name}
-          onTouch={handlePadTouch}
+          onTouchStart={handlePadTouch}
           player={player}
           isTriggered={pad.isTriggered}
         />
