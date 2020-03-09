@@ -6,9 +6,14 @@ const padsUrl = createPadsUrlObject(padsData)
 
 export const samplePlayer = new Players(padsUrl).toMaster()
 
-export function triggerPadByKey(padName) {
-  const player = samplePlayer.get(padName)
-  player.start()
+export function triggerPadByKey(key) {
+  padsData.forEach(padData => {
+    if (padData.key === key) {
+      const padName = createKeyFromString(padData.name)
+      const player = samplePlayer.get(padName)
+      player.start()
+    }
+  })
 }
 
 function createPadsUrlObject(padsData) {

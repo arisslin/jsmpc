@@ -3,7 +3,6 @@ import styled from 'styled-components/macro'
 import { padsData } from './common/padsData'
 import { samplePlayer, triggerPadByKey } from './common/samplePlayer'
 import PadSection from './components/Pad/PadSection'
-import { createKeyFromString } from './common/utils'
 
 export default function App() {
   return (
@@ -15,15 +14,7 @@ export default function App() {
 
 window.addEventListener('keydown', event => {
   const key = event.key
-  padsData.forEach(padData => {
-    const padKey = padData.key
-    console.log(padKey)
-
-    if (padKey === key) {
-      const padName = createKeyFromString(padData.name)
-      triggerPadByKey(padName)
-    }
-  })
+  triggerPadByKey(key)
 })
 
 const AppStyled = styled.div`
