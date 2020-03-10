@@ -12,7 +12,7 @@ export default function App() {
     <AppStyled onKeyDown={onKeyDown} onKeyUp={onKeyUp} tabIndex="0">
       <PadSection
         pads={padsAttributes}
-        handlePadTouchStart={playPadByTouch}
+        handlePadTouchStart={handlePadTouchStart}
         handlePadTouchEnd={handlePadTouchEnd}
         padPlayer={padPlayer}
       />
@@ -21,28 +21,40 @@ export default function App() {
 
   function onKeyDown(event) {
     const key = event.key
+    const index = getPadIndexByKey(key, padsAttributes)
     playPadByKey(key, padsAttributes)
-    setPadTriggerStatus(key, padsAttributes, true)
+    setPadTriggerStatus(index, padsAttributes)
   }
 
   function onKeyUp(event) {
     const key = event.key
-    setPadTriggerStatus(key, padsAttributes, false)
-  }
-
-  function handlePadTouchEnd() {
-    //...hier weiter machen
-  }
-
-  function setPadTriggerStatus(key, padsAttributes, isTriggered) {
     const index = getPadIndexByKey(key, padsAttributes)
+    setPadTriggerStatus(index, padsAttributes)
+  }
+
+  function handlePadTouchStart(index, player) {
+    setPadTriggerStatus(index, padsAttributes)
+    playPadByTouch(player)
+  }
+
+  function handlePadTouchEnd(index, event) {
+    stopPinchZooming(event)
+    setPadTriggerStatus(index, padsAttributes)
+  }
+
+  function setPadTriggerStatus(index, padsAttributes) {
     if (index > -1) {
       const pad = { ...padsAttributes[index] }
-      pad.isTriggered = isTriggered
+      pad.isTriggered = !pad.isTriggered
       const newPadsAttributes = replaceDataArrayCopy(padsAttributes, pad, index)
       setPadsAttributes(newPadsAttributes)
     }
   }
+}
+
+function stopPinchZooming(event) {
+  // Stops the browser zooming when double tab on mobile devices
+  event.preventDefault()
 }
 
 const AppStyled = styled.div`

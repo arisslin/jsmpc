@@ -20,14 +20,16 @@ export default function PadSection({
   return <PadSectionStyled>{addPads()}</PadSectionStyled>
 
   function addPads() {
-    return pads.map(pad => {
+    return pads.map((pad, index) => {
       const key = createKeyFromString(pad.name)
       const player = padPlayer.get(key)
       return (
         <Pad
           key={key}
+          index={index}
           name={pad.name}
           onTouchStart={handlePadTouchStart}
+          onTouchEnd={handlePadTouchEnd}
           player={player}
           isTriggered={pad.isTriggered}
         />
