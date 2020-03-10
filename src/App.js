@@ -23,26 +23,26 @@ export default function App() {
     const key = event.key
     const index = getPadIndexByKey(key, padsAttributes)
     playPadByKey(key, padsAttributes)
-    setPadTriggerStatus(index, padsAttributes)
+    togglePadTriggerStatus(index, padsAttributes)
   }
 
   function onKeyUp(event) {
     const key = event.key
     const index = getPadIndexByKey(key, padsAttributes)
-    setPadTriggerStatus(index, padsAttributes)
+    togglePadTriggerStatus(index, padsAttributes)
   }
 
   function handlePadTouchStart(index, player) {
-    setPadTriggerStatus(index, padsAttributes)
+    togglePadTriggerStatus(index, padsAttributes)
     playPadByTouch(player)
   }
 
   function handlePadTouchEnd(index, event) {
     stopPinchZooming(event)
-    setPadTriggerStatus(index, padsAttributes)
+    togglePadTriggerStatus(index, padsAttributes)
   }
 
-  function setPadTriggerStatus(index, padsAttributes) {
+  function togglePadTriggerStatus(index, padsAttributes) {
     if (index > -1) {
       const pad = { ...padsAttributes[index] }
       pad.isTriggered = !pad.isTriggered

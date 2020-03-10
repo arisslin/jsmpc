@@ -31,11 +31,6 @@ export default function Pad({
   )
 }
 
-function stopPinchZooming(event) {
-  // Stops the browser zooming when double tab on mobile devices
-  event.preventDefault()
-}
-
 const PadStyled = styled.div`
   position: relative;
   border: 2px solid;
