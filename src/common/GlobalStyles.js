@@ -3,6 +3,8 @@ import { createGlobalStyle } from 'styled-components/macro'
 export default createGlobalStyle`
   :root{
     /* Colors */
+    --color-button-light: #d6d6d6;
+    --color-button-border: #414649;
     --color-dark: #32373a;
     --color-mpc-chassis: #E8E8E8;
     --color-pad-grey: #7F7E7A;
@@ -10,7 +12,6 @@ export default createGlobalStyle`
     --blue-grey-light: #A6ADB5;
     --blue-grey-medium: #7A8490;
     
-
     /* spacing */
     --pad-section-padding: 10px;
   }

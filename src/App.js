@@ -4,6 +4,7 @@ import { padPlayer, playPadByKey, playPadByTouch } from './common/padPlayer'
 import { padsData } from './common/padsData'
 import { getPadIndexByKey, replaceDataArrayCopy } from './common/utils'
 import PadSection from './components/Pad/PadSection'
+import { InfoButton } from './components/Buttons/Button'
 
 export default function App() {
   const [padsAttributes, setPadsAttributes] = useState(padsData)
@@ -16,6 +17,7 @@ export default function App() {
         handlePadTouchEnd={handlePadTouchEnd}
         padPlayer={padPlayer}
       />
+      <InfoButton />
     </AppStyled>
   )
 
