@@ -23,7 +23,8 @@ export default function Pad({
     <PadStyled
       onTouchStart={() => onTouchStart(index, player)}
       onTouchEnd={event => onTouchEnd(index, event)}
-      onMouseDown={() => onTouchStart(player)}
+      onMouseDown={() => onTouchStart(index, player)}
+      onMouseUp={event => onTouchEnd(index, event)}
       isTriggered={isTriggered}
     >
       <span>{name}</span>
