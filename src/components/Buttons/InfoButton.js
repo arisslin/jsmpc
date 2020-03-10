@@ -1,17 +1,21 @@
-import React from 'react'
+import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components/macro'
 
 export default function InfoButton() {
+  const [buttonActive, setButtonActive] = useState(false)
+  const onClick = () => setButtonActive(!buttonActive)
   return (
     <>
-      <ButtonStyled>?</ButtonStyled>
-      <Tooltip>
+      <ButtonStyled onClick={onClick}>
+        <span>?</span>
+      </ButtonStyled>
+      <Tooltip buttonActive={buttonActive}>
         <h3>Keyboard shortcuts</h3>
         <table>
           <thead>
             <tr>
-              <th class="pr-1">key</th>
+              <th className="pr-1">key</th>
               <th>action</th>
             </tr>
           </thead>
@@ -30,7 +34,7 @@ export default function InfoButton() {
         <table>
           <thead>
             <tr>
-              <th class="pr-1">key</th>
+              <th className="pr-1">key</th>
               <th>action</th>
             </tr>
           </thead>
@@ -73,17 +77,21 @@ const ButtonStyled = styled.button`
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2);
   color: var(--color-border);
   cursor: pointer;
-  font-size: 1.4rem;
-  font-weight: 600;
-  line-height: 0;
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.4);
 
   @media (orientation: landscape) and (min-width: 1200px) {
     display: inline-block;
   }
+
+  span {
+    font-size: 1.4rem;
+    font-weight: 600;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.4);
+  }
 `
 
 const Tooltip = styled.div`
+  display: none;
   position: absolute;
   top: 60px;
   right: 10px;
@@ -96,6 +104,10 @@ const Tooltip = styled.div`
   box-shadow: 1px 1px 5px 0 rgba(0, 0, 0, 0.5);
   color: var(--color-border);
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.4);
+
+  @media (orientation: landscape) and (min-width: 1200px) {
+    display: ${props => (props.buttonActive ? 'inline-block' : 'none')};
+  }
 
   h3 {
     margin-top: 4px;
