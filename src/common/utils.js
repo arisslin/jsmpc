@@ -1,7 +1,10 @@
+import { object } from 'prop-types'
+
 export function createKeyFromString(string) {
-  if (Array.isArray(string)) {
-    throw new Array('param is an array')
+  if (typeof string !== 'string') {
+    throw new Error('param is', typeof string)
   }
+
   string = String(string)
   return string.toLowerCase().replace(' ', '')
 }

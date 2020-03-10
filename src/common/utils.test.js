@@ -20,12 +20,26 @@ describe('createKeyFromString', () => {
   })
 
   it('should convert a number to string', () => {
-    expect(createKeyFromString(1)).toBe('1')
+    expect(() => createKeyFromString(1)).toThrow()
   })
 
-  it('throws when param is an array', () => {
+  it('throws if param is an array', () => {
     const testArray = [1, 2, 3, 4, 5]
     expect(() => createKeyFromString(testArray)).toThrow()
+  })
+
+  it('throws if param is an object', () => {
+    const testObject = { key: 'test', data: 123 }
+    expect(() => createKeyFromString(testObject)).toThrow()
+  })
+  it('throws if param is bool', () => {
+    expect(() => createKeyFromString(true)).toThrow()
+    expect(() => createKeyFromString(false)).toThrow()
+  })
+
+  it('throws if param is falsy', () => {
+    expect(() => createKeyFromString(undefined)).toThrow()
+    expect(() => createKeyFromString(null)).toThrow()
   })
 })
 
