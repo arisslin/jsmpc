@@ -6,6 +6,10 @@ describe('createKeyFromString', () => {
     expect(createKeyFromString('Pad')).toBe('pad')
   })
 
+  it('should not return a string with uppercase letters', () => {
+    expect(createKeyFromString('Pad 11')).not.toBe('Pad11')
+  })
+
   it('returns string in without whitespace', () => {
     expect(createKeyFromString('Pad 11')).toBe('pad11')
   })
@@ -15,12 +19,13 @@ describe('createKeyFromString', () => {
     expect(createKeyFromString('Pad 11')).not.toBe('Pad11')
   })
 
-  it('should not return a string with uppercase letters', () => {
-    expect(createKeyFromString('Pad 11')).not.toBe('Pad11')
-  })
-
   it('should convert a number to string', () => {
     expect(createKeyFromString(1)).toBe('1')
+  })
+
+  it('throws when param is an array', () => {
+    const testArray = [1, 2, 3, 4, 5]
+    expect(() => createKeyFromString(testArray)).toThrow()
   })
 })
 

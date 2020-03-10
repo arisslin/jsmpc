@@ -1,8 +1,10 @@
-export const replaceDataArrayCopy = (array, data, index) => [
-  ...array.slice(0, index),
-  data,
-  ...array.slice(index + 1),
-]
+export function createKeyFromString(string) {
+  if (Array.isArray(string)) {
+    throw new Array('param is an array')
+  }
+  string = String(string)
+  return string.toLowerCase().replace(' ', '')
+}
 
 export const getPadIndexByKey = (key, padsAttributes) => {
   if (!Array.isArray(padsAttributes)) {
@@ -14,7 +16,8 @@ export const getPadIndexByKey = (key, padsAttributes) => {
   return padsAttributes.findIndex(pad => pad.key === key)
 }
 
-export function createKeyFromString(string) {
-  string = String(string)
-  return string.toLowerCase().replace(' ', '')
-}
+export const replaceDataArrayCopy = (array, data, index) => [
+  ...array.slice(0, index),
+  data,
+  ...array.slice(index + 1),
+]
