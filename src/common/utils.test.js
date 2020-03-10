@@ -1,4 +1,8 @@
-import { createKeyFromString, getPadIndexByKey } from './utils'
+import {
+  createKeyFromString,
+  getPadIndexByKey,
+  replaceDataArrayCopy,
+} from './utils'
 import { padsData } from './padsData'
 
 describe('createKeyFromString', () => {
@@ -16,28 +20,18 @@ describe('createKeyFromString', () => {
 
   it('should not return a string with whitespace', () => {
     expect(createKeyFromString('Pad 11')).not.toBe('pad 11')
-    expect(createKeyFromString('Pad 11')).not.toBe('Pad11')
+    expect(createKeyFromString('Pad 11')).not.toBe('Pad 11')
   })
 
-  it('should convert a number to string', () => {
-    expect(() => createKeyFromString(1)).toThrow()
-  })
-
-  it('throws if param is an array', () => {
+  it('throws when param is no string', () => {
     const testArray = [1, 2, 3, 4, 5]
-    expect(() => createKeyFromString(testArray)).toThrow()
-  })
-
-  it('throws if param is an object', () => {
     const testObject = { key: 'test', data: 123 }
+
+    expect(() => createKeyFromString(1)).toThrow()
+    expect(() => createKeyFromString(testArray)).toThrow()
     expect(() => createKeyFromString(testObject)).toThrow()
-  })
-  it('throws if param is bool', () => {
     expect(() => createKeyFromString(true)).toThrow()
     expect(() => createKeyFromString(false)).toThrow()
-  })
-
-  it('throws if param is falsy', () => {
     expect(() => createKeyFromString(undefined)).toThrow()
     expect(() => createKeyFromString(null)).toThrow()
   })
@@ -70,7 +64,7 @@ describe('getPadIndexByKey', () => {
     expect(getPadIndexByKey('D', padsData)).toBe(-1)
   })
 
-  it('throws when 2nd argument is no array', () => {
+  it('throws when 2nd param is no array', () => {
     expect(() => {
       getPadIndexByKey('1', undefined)
     }).toThrow()
@@ -92,17 +86,44 @@ describe('getPadIndexByKey', () => {
     }).toThrow()
   })
 
-  it('throws when 2nd argument length is not strictly equal 16', () => {
+  it('throws when 2nd param contains not only objects', () => {
     expect(() => {
       const testArray = [1, 2, 3, 4, 5]
       getPadIndexByKey('s', testArray)
     }).toThrow()
   })
+})
 
-  it('throws when 2nd argument contains not only objects', () => {
-    expect(() => {
-      const testArray = [1, 2, 3, 4, 5]
-      getPadIndexByKey('s', testArray)
-    }).toThrow()
+describe('replaceDataArrayCopy', () => {
+  const testData = {
+    name: 'Pad 13',
+    url: require('../media/sounds/808kit/OpenHH808.wav'),
+    key: '1',
+    isTriggered: true,
+  }
+
+  it('returns an array which contains the delivered data', () => {
+    expect(replaceDataArrayCopy(padsData, testData, 0)).toContain(testData)
+  })
+
+  it('returns an array which length is equal to the delivered array', () => {
+    const deliveredArrayLength = padsData.length
+    const returnedArrayLength = replaceDataArrayCopy(padsData, testData, 0)
+      .length
+    expect(deliveredArrayLength).toBe(returnedArrayLength)
+  })
+
+  it('throws when 3rd param is no number', () => {
+    expect(() => replaceDataArrayCopy(padsData, testData, 'a')).toThrow()
+    expect(() => replaceDataArrayCopy(padsData, testData, true)).toThrow()
+    expect(() => replaceDataArrayCopy(padsData, testData, null)).toThrow()
+    expect(() => replaceDataArrayCopy(padsData, testData, undefined)).toThrow()
+  })
+
+  it('throws when 1st param is no array', () => {
+    expect(() => replaceDataArrayCopy(1, testData, 0)).toThrow()
+    expect(() => replaceDataArrayCopy('test', testData, 0)).toThrow()
+    expect(() => replaceDataArrayCopy(undefined, testData, 0)).toThrow()
+    expect(() => replaceDataArrayCopy(false, testData, 0)).toThrow()
   })
 })
