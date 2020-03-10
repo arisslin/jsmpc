@@ -18,6 +18,32 @@ export const DefaultPad = () => (
     }}
   >
     <GlobalStyles />
-    <Pad name="Pad 1" player={{ start: action('player.start()') }} />
+    <Pad
+      name="Pad 1"
+      isTriggered={false}
+      player={{ start: action('player.start()') }}
+      onTouchStart={action('onTouchStart')}
+      onTouchEnd={action('onTouchEnd')}
+    />
+  </div>
+)
+
+export const DefaultPadTriggered = () => (
+  <div
+    style={{
+      margin: 20,
+      height: '100px',
+      width: '100px',
+      display: 'grid',
+    }}
+  >
+    <GlobalStyles />
+    <Pad
+      name="Pad 1"
+      isTriggered={true}
+      player={{ start: action('player.start()') }}
+      onTouchStart={action('onTouchStart')}
+      onTouchEnd={action('onTouchEnd')}
+    />
   </div>
 )
