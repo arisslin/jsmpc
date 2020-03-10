@@ -4,7 +4,7 @@ export default createGlobalStyle`
   :root{
     /* Colors */
     --color-button-light: #d6d6d6;
-    --color-button-border: #414649;
+    --color-border: #414649;
     --color-dark: #32373a;
     --color-mpc-chassis: #E8E8E8;
     --color-pad-grey: #7F7E7A;
@@ -25,5 +25,9 @@ export default createGlobalStyle`
     font-family: sans-serif;
     font-size: 16px;
     overflow: hidden;
+  }
+
+  .pr-1 {
+    padding-right: 1rem;
   }
 `
