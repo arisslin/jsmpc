@@ -6,8 +6,10 @@ export default createGlobalStyle`
     --color-dark: #32373a;
     --color-mpc-chassis: #E8E8E8;
     --color-pad-grey: #7F7E7A;
+    --color-pad-triggered: #c72400;
     --blue-grey-light: #A6ADB5;
     --blue-grey-medium: #7A8490;
+    
 
     /* spacing */
     --pad-section-padding: 10px;

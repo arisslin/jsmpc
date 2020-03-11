@@ -1,9 +1,8 @@
 import React from 'react'
 import PadSection from './PadSection'
-import Pad from './Pad'
 import GlobalStyles from '../../common/GlobalStyles'
 import { padsData } from '../../common/padsData'
-import { samplePlayer } from '../../common/samplePlayer'
+import { padPlayer } from '../../common/padPlayer'
 
 export default {
   title: 'Pads',
@@ -21,6 +20,6 @@ export const DefaultPadSection = () => (
     }}
   >
     <GlobalStyles />
-    <PadSection pads={padsData} samplePlayer={samplePlayer} />
+    <PadSection pads={padsData} padPlayer={padPlayer} />
   </div>
 )
