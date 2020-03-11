@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import styled from 'styled-components/macro'
 import { padPlayer, playPadByKey, playPadByTouch } from './common/padPlayer'
 import { padsData } from './common/padsData'
-import { getPadIndexByKey, replaceDataArrayCopy } from './common/utils'
+import { getPadIndexByKey, updateInArray } from './common/utils'
 import PadSection from './components/Pad/PadSection'
 
 export default function App() {
@@ -46,7 +46,7 @@ export default function App() {
     if (index > -1) {
       const pad = { ...padsAttributes[index] }
       pad.isTriggered = !pad.isTriggered
-      const newPadsAttributes = replaceDataArrayCopy(padsAttributes, pad, index)
+      const newPadsAttributes = updateInArray(padsAttributes, pad, index)
       setPadsAttributes(newPadsAttributes)
     }
   }

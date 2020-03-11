@@ -7,6 +7,6 @@ export const getPadIndexByKey = (key, padsAttributes) => {
   return padsAttributes.findIndex(pad => pad.key === key)
 }
 
-export const replaceDataArrayCopy = (array, data, index) => {
+export const updateInArray = (array, data, index) => {
   return [...array.slice(0, index), data, ...array.slice(index + 1)]
 }
