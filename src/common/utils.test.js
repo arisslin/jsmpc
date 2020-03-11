@@ -22,19 +22,6 @@ describe('createKeyFromString', () => {
     expect(createKeyFromString('Pad 11')).not.toBe('pad 11')
     expect(createKeyFromString('Pad 11')).not.toBe('Pad 11')
   })
-
-  it('throws when param is no string', () => {
-    const testArray = [1, 2, 3, 4, 5]
-    const testObject = { key: 'test', data: 123 }
-
-    expect(() => createKeyFromString(1)).toThrow()
-    expect(() => createKeyFromString(testArray)).toThrow()
-    expect(() => createKeyFromString(testObject)).toThrow()
-    expect(() => createKeyFromString(true)).toThrow()
-    expect(() => createKeyFromString(false)).toThrow()
-    expect(() => createKeyFromString(undefined)).toThrow()
-    expect(() => createKeyFromString(null)).toThrow()
-  })
 })
 
 describe('getPadIndexByKey', () => {
@@ -63,35 +50,6 @@ describe('getPadIndexByKey', () => {
     expect(getPadIndexByKey('§', padsData)).toBe(-1)
     expect(getPadIndexByKey('D', padsData)).toBe(-1)
   })
-
-  it('throws when 2nd param is no array', () => {
-    expect(() => {
-      getPadIndexByKey('1', undefined)
-    }).toThrow()
-
-    expect(() => {
-      getPadIndexByKey('y', 'Test')
-    }).toThrow()
-
-    expect(() => {
-      getPadIndexByKey('3', null)
-    }).toThrow()
-
-    expect(() => {
-      getPadIndexByKey('w', false)
-    }).toThrow()
-
-    expect(() => {
-      getPadIndexByKey('s', { key: 'a', value: 'Test' })
-    }).toThrow()
-  })
-
-  it('throws when 2nd param contains not only objects', () => {
-    expect(() => {
-      const testArray = [1, 2, 3, 4, 5]
-      getPadIndexByKey('s', testArray)
-    }).toThrow()
-  })
 })
 
 describe('replaceDataArrayCopy', () => {
@@ -111,19 +69,5 @@ describe('replaceDataArrayCopy', () => {
     const returnedArrayLength = replaceDataArrayCopy(padsData, testData, 0)
       .length
     expect(deliveredArrayLength).toBe(returnedArrayLength)
-  })
-
-  it('throws when 3rd param is no number', () => {
-    expect(() => replaceDataArrayCopy(padsData, testData, 'a')).toThrow()
-    expect(() => replaceDataArrayCopy(padsData, testData, true)).toThrow()
-    expect(() => replaceDataArrayCopy(padsData, testData, null)).toThrow()
-    expect(() => replaceDataArrayCopy(padsData, testData, undefined)).toThrow()
-  })
-
-  it('throws when 1st param is no array', () => {
-    expect(() => replaceDataArrayCopy(1, testData, 0)).toThrow()
-    expect(() => replaceDataArrayCopy('test', testData, 0)).toThrow()
-    expect(() => replaceDataArrayCopy(undefined, testData, 0)).toThrow()
-    expect(() => replaceDataArrayCopy(false, testData, 0)).toThrow()
   })
 })
