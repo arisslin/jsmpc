@@ -46,7 +46,7 @@ export default function Tooltip({ buttonActive, onClick }) {
   )
 }
 
-function TableRow({ shortcut, action }) {
+export function TableRow({ shortcut, action }) {
   return (
     <tr>
       <td>{shortcut}</td>
