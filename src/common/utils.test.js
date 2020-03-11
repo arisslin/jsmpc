@@ -6,17 +6,8 @@ describe('createKeyFromString', () => {
     expect(createKeyFromString('Pad')).toBe('pad')
   })
 
-  it('should not return a string with uppercase letters', () => {
-    expect(createKeyFromString('Pad 11')).not.toBe('Pad11')
-  })
-
   it('returns string in without whitespace', () => {
     expect(createKeyFromString('Pad 11')).toBe('pad11')
-  })
-
-  it('should not return a string with whitespace', () => {
-    expect(createKeyFromString('Pad 11')).not.toBe('pad 11')
-    expect(createKeyFromString('Pad 11')).not.toBe('Pad 11')
   })
 })
 
