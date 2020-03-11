@@ -1,8 +1,4 @@
-import {
-  createKeyFromString,
-  getPadIndexByKey,
-  replaceDataArrayCopy,
-} from './utils'
+import { createKeyFromString, getPadIndexByKey, updateInArray } from './utils'
 import { padsData } from './padsData'
 
 describe('createKeyFromString', () => {
@@ -52,7 +48,7 @@ describe('getPadIndexByKey', () => {
   })
 })
 
-describe('replaceDataArrayCopy', () => {
+describe('updateInArray', () => {
   const testData = {
     name: 'Pad 13',
     url: require('../media/sounds/808kit/OpenHH808.wav'),
@@ -61,13 +57,12 @@ describe('replaceDataArrayCopy', () => {
   }
 
   it('returns an array which contains the delivered data', () => {
-    expect(replaceDataArrayCopy(padsData, testData, 0)).toContain(testData)
+    expect(updateInArray(padsData, testData, 0)).toContain(testData)
   })
 
   it('returns an array which length is equal to the delivered array', () => {
     const deliveredArrayLength = padsData.length
-    const returnedArrayLength = replaceDataArrayCopy(padsData, testData, 0)
-      .length
+    const returnedArrayLength = updateInArray(padsData, testData, 0).length
     expect(deliveredArrayLength).toBe(returnedArrayLength)
   })
 })
