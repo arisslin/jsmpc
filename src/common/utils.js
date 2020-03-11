@@ -1,5 +1,3 @@
-import { object } from 'prop-types'
-
 export function createKeyFromString(string) {
   if (typeof string !== 'string') {
     throw new Error('param is', typeof string)
