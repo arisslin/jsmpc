@@ -14,6 +14,11 @@ export default createGlobalStyle`
     
     /* spacing */
     --pad-section-padding: 10px;
+
+    /* shadow */
+    --element-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2);
+    --element-triggered-shadow: 0 1px 4px 0 rgba(199, 36, 0, 0.2);
+    --element-inside-text-shadow: 0 1px 0 rgba(255, 255, 255, 0.4);
   }
 
   * {

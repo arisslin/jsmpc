@@ -1,16 +1,17 @@
 import React, { useState } from 'react'
-import PropTypes from 'prop-types'
 import styled from 'styled-components/macro'
 
 export default function InfoButton() {
   const [buttonActive, setButtonActive] = useState(false)
   const onClick = () => setButtonActive(!buttonActive)
+
   return (
     <>
-      <ButtonStyled onClick={onClick}>
-        <span>?</span>
+      <ButtonStyled buttonActive={buttonActive} onClick={onClick}>
+        ?
       </ButtonStyled>
-      <Tooltip buttonActive={buttonActive}>
+
+      <Tooltip buttonActive={buttonActive} onClick={onClick}>
         <h3>Keyboard shortcuts</h3>
         <table>
           <thead>
@@ -73,20 +74,22 @@ const ButtonStyled = styled.button`
   border-radius: 3px;
   height: 40px;
   width: 80px;
-  background-color: var(--color-button-light);
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2);
-  color: var(--color-border);
+  background-color: ${props =>
+    props.buttonActive
+      ? 'var(--blue-grey-light)'
+      : 'var(--color-button-light)'};
+  box-shadow: ${props =>
+    props.buttonActive ? 'none' : 'var(--element-box-shadow)'};
+  color: ${props =>
+    props.buttonActive ? 'var(--color-pad-triggered)' : 'var(--color-border)'};
   cursor: pointer;
-  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.4);
+  font-size: 1.4rem;
+  font-weight: 600;
+  text-shadow: var(--element-inside-text-shadow);
+  user-select: none;
 
   @media (orientation: landscape) and (min-width: 1200px) {
     display: inline-block;
-  }
-
-  span {
-    font-size: 1.4rem;
-    font-weight: 600;
-    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.4);
   }
 `
 
@@ -103,7 +106,8 @@ const Tooltip = styled.div`
   background-color: var(--color-button-light);
   box-shadow: 1px 1px 5px 0 rgba(0, 0, 0, 0.5);
   color: var(--color-border);
-  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.4);
+  text-shadow: var(--element-inside-text-shadow);
+  user-select: none;
 
   @media (orientation: landscape) and (min-width: 1200px) {
     display: ${props => (props.buttonActive ? 'inline-block' : 'none')};
