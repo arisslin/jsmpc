@@ -11,7 +11,7 @@ export default function App() {
   const [padsAttributes, setPadsAttributes] = useState(padsData)
   let sampleplayer = null
   useEffect(() => {
-    sampleplayer = new SamplePlayer()
+    sampleplayer = new SamplePlayer(padsData)
   }, [])
 
   return (
