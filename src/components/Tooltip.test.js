@@ -23,9 +23,12 @@ describe('<TableRow />', () => {
     expect(container.innerHTML).toBe('<tr><td>a</td><td>b</td></tr>')
   })
 })
+<<<<<<< HEAD
 
 // const el = container.querySelector('tr')
 // const style = getComputedStyle(el)
 // console.log('STYLE', style.getPropertyValue('display'))
 // fireEvent.click(container)
 // console.log('STYLE', style.getPropertyValue('display'))
+=======
+>>>>>>> info-button

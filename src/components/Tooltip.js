@@ -1,9 +1,9 @@
 import React from 'react'
 import styled from 'styled-components/macro'
 
-export default function Tooltip({ buttonActive, onClick }) {
+export default function Tooltip({ visible, onClick }) {
   return (
-    <TooltipStyled buttonActive={buttonActive} onClick={onClick}>
+    <TooltipStyled visible={visible} onClick={onClick}>
       <h3>Keyboard shortcuts</h3>
       <table>
         <thead>
@@ -72,7 +72,7 @@ const TooltipStyled = styled.div`
   user-select: none;
 
   @media (orientation: landscape) and (min-width: 1200px) {
-    display: ${props => (props.buttonActive ? 'inline-block' : 'none')};
+    display: ${props => (props.visible ? 'inline-block' : 'none')};
   }
 
   h3 {

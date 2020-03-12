@@ -12,10 +12,7 @@ export const TooltipDefault = () => {
   return (
     <>
       <GlobalStyles />
-      <Tooltip
-        buttonActive={action('buttonActive')}
-        onClick={action('onClick')}
-      />
+      <Tooltip visible={action('visible')} onClick={action('onClick')} />
     </>
   )
 }
