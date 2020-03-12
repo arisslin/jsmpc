@@ -2,7 +2,11 @@ import React, { useState } from 'react'
 import styled from 'styled-components/macro'
 import { padPlayer, playPadByTouch } from './common/padPlayer'
 import { padsData } from './common/padsData'
-import { getPadIndexByKey, updateInArray } from './common/utils'
+import {
+  getPadIndexByKey,
+  updateInArray,
+  createKeyFromString,
+} from './common/utils'
 import InfoButton from './components/Buttons/InfoButton'
 import PadSection from './components/Pad/PadSection'
 import SamplePlayer from './common/SamplePlayer'
@@ -26,7 +30,7 @@ export default function App() {
 
   function onKeyDown(event) {
     const key = event.key
-    samplePlayer.playSample(key)
+    samplePlayer.playSampleByKey(key)
     const index = getPadIndexByKey(key, pads)
     togglePadTriggerStatus(index, pads)
   }
@@ -37,14 +41,18 @@ export default function App() {
     togglePadTriggerStatus(index, pads)
   }
 
-  function handlePadTouchStart(index, player) {
-    togglePadTriggerStatus(index, pads)
-    playPadByTouch(player)
+  function handlePadTouchStart(event) {
+    const target = event.target
+    const name = createKeyFromString(target.attributes.name.value)
+    samplePlayer.playSampleByName(name)
+
+    //togglePadTriggerStatus(index, pads)
+    // playPadByTouch(player)
   }
 
   function handlePadTouchEnd(index, event) {
     stopPinchZooming(event)
-    togglePadTriggerStatus(index, pads)
+    //togglePadTriggerStatus(index, pads)
   }
 
   function togglePadTriggerStatus(index, pads) {

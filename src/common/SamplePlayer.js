@@ -24,15 +24,25 @@ export default class SamplePlayer {
 
   // *** Public Methods ***
 
-  playSample(key) {
-    console.log('Play Sample')
-
+  playSampleByKey(key) {
     this._pads.forEach(pad => {
       if (pad.key === key) {
-        const player = this.samplePlayers.get(pad.name)
-        player.start()
+        this.playSample(pad.name)
       }
     })
+  }
+
+  playSampleByName(name) {
+    this._pads.forEach(pad => {
+      if (pad.name === name) {
+        this.playSample(name)
+      }
+    })
+  }
+
+  playSample(padName) {
+    const player = this.samplePlayers.get(padName)
+    player.start()
   }
 
   // *** Private methods ***
