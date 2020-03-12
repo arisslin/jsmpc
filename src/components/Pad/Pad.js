@@ -41,8 +41,8 @@ const PadStyled = styled.div`
   background-color: var(--color-pad-grey);
   box-shadow: ${props =>
     props.isTriggered
-      ? '0 1px 4px 0 rgba(199, 36, 0, 0.2)'
-      : '0 1px 3px 0 rgba(0, 0, 0, 0.2)'};
+      ? 'var(--element-triggered-shadow)'
+      : 'var(--element-box-shadow)'};
   cursor: pointer;
   user-select: none;
 
