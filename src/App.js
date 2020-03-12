@@ -1,13 +1,18 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from 'styled-components/macro'
 import { padPlayer, playPadByKey, playPadByTouch } from './common/padPlayer'
 import { padsData } from './common/padsData'
 import { getPadIndexByKey, updateInArray } from './common/utils'
-import PadSection from './components/Pad/PadSection'
 import InfoButton from './components/Buttons/InfoButton'
+import PadSection from './components/Pad/PadSection'
+import SamplePlayer from './common/SamplePlayer'
 
 export default function App() {
   const [padsAttributes, setPadsAttributes] = useState(padsData)
+  let sampleplayer = null
+  useEffect(() => {
+    sampleplayer = new SamplePlayer()
+  }, [])
 
   return (
     <AppStyled onKeyDown={onKeyDown} onKeyUp={onKeyUp} tabIndex="0">
