@@ -4,10 +4,22 @@ import { createKeyFromString } from './utils'
 
 export default class SamplePlayer {
   constructor(padsData) {
-    this.pads = this._createPads(padsData)
+    this._pads = this._createPads(padsData)
     this.samplePlayers = new Players(
-      this._createSoundUrls(this.pads)
+      this._createSoundUrlsObject(this.pads)
     ).toMaster()
+  }
+
+  // *** getter ***
+
+  getPads() {
+    return this._pads
+  }
+
+  // *** setter ***
+
+  setPads(pads) {
+    this._pads = pads
   }
 
   // *** Private methods ***
@@ -28,11 +40,15 @@ export default class SamplePlayer {
     }
   }
 
-  _createSoundUrls(padsData) {
-    let urls = padsData.reduce((allUrls, pad) => {
-      allUrls[pad.name] = pad.soundUrl
-      return allUrls
-    }, {})
-    return urls
+  _createSoundUrlsObject() {
+    try {
+      let urls = this._pads.reduce((allUrls, pad) => {
+        allUrls[pad.name] = pad.soundUrl
+        return allUrls
+      }, {})
+      return urls
+    } catch (error) {
+      console.log(error)
+    }
   }
 }

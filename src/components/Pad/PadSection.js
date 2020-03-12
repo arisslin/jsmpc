@@ -23,6 +23,7 @@ export default function PadSection({
     return pads.map((pad, index) => {
       const key = createKeyFromString(pad.name)
       const player = padPlayer.get(key)
+
       return (
         <Pad
           key={key}

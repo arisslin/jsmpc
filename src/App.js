@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components/macro'
 import { padPlayer, playPadByKey, playPadByTouch } from './common/padPlayer'
 import { padsData } from './common/padsData'
@@ -7,17 +7,15 @@ import InfoButton from './components/Buttons/InfoButton'
 import PadSection from './components/Pad/PadSection'
 import SamplePlayer from './common/SamplePlayer'
 
+const samplePlayer = new SamplePlayer(padsData)
+
 export default function App() {
-  const [padsAttributes, setPadsAttributes] = useState(padsData)
-  let sampleplayer = null
-  useEffect(() => {
-    sampleplayer = new SamplePlayer(padsData)
-  }, [])
+  const [pads, setPads] = useState(padsData)
 
   return (
     <AppStyled onKeyDown={onKeyDown} onKeyUp={onKeyUp} tabIndex="0">
       <PadSection
-        pads={padsAttributes}
+        pads={pads}
         handlePadTouchStart={handlePadTouchStart}
         handlePadTouchEnd={handlePadTouchEnd}
         padPlayer={padPlayer}
@@ -28,33 +26,34 @@ export default function App() {
 
   function onKeyDown(event) {
     const key = event.key
-    const index = getPadIndexByKey(key, padsAttributes)
-    playPadByKey(key, padsAttributes)
-    togglePadTriggerStatus(index, padsAttributes)
+
+    const index = getPadIndexByKey(key, pads)
+    playPadByKey(key, pads)
+    togglePadTriggerStatus(index, pads)
   }
 
   function onKeyUp(event) {
     const key = event.key
-    const index = getPadIndexByKey(key, padsAttributes)
-    togglePadTriggerStatus(index, padsAttributes)
+    const index = getPadIndexByKey(key, pads)
+    togglePadTriggerStatus(index, pads)
   }
 
   function handlePadTouchStart(index, player) {
-    togglePadTriggerStatus(index, padsAttributes)
+    togglePadTriggerStatus(index, pads)
     playPadByTouch(player)
   }
 
   function handlePadTouchEnd(index, event) {
     stopPinchZooming(event)
-    togglePadTriggerStatus(index, padsAttributes)
+    togglePadTriggerStatus(index, pads)
   }
 
-  function togglePadTriggerStatus(index, padsAttributes) {
+  function togglePadTriggerStatus(index, pads) {
     if (index > -1) {
-      const pad = { ...padsAttributes[index] }
+      const pad = { ...pads[index] }
       pad.isTriggered = !pad.isTriggered
-      const newPadsAttributes = updateInArray(padsAttributes, pad, index)
-      setPadsAttributes(newPadsAttributes)
+      const newPads = updateInArray(pads, pad, index)
+      setPads(newPads)
     }
   }
 }
