@@ -3,15 +3,15 @@ import styled from 'styled-components/macro'
 import Tooltip from '../Tooltip'
 
 export default function InfoButton() {
-  const [buttonActive, setButtonActive] = useState(false)
-  const onClick = () => setButtonActive(!buttonActive)
+  const [active, setActive] = useState(false)
+  const onClick = () => setActive(!active)
 
   return (
     <>
-      <ButtonStyled buttonActive={buttonActive} onClick={onClick}>
+      <ButtonStyled active={active} onClick={onClick}>
         ?
       </ButtonStyled>
-      <Tooltip buttonActive={buttonActive} onClick={onClick} />
+      <Tooltip visible={active} onClick={onClick} />
     </>
   )
 }
@@ -27,13 +27,10 @@ const ButtonStyled = styled.button`
   height: 40px;
   width: 80px;
   background-color: ${props =>
-    props.buttonActive
-      ? 'var(--blue-grey-light)'
-      : 'var(--color-button-light)'};
-  box-shadow: ${props =>
-    props.buttonActive ? 'none' : 'var(--element-box-shadow)'};
+    props.active ? 'var(--blue-grey-light)' : 'var(--color-button-light)'};
+  box-shadow: ${props => (props.active ? 'none' : 'var(--element-box-shadow)')};
   color: ${props =>
-    props.buttonActive ? 'var(--color-pad-triggered)' : 'var(--color-border)'};
+    props.active ? 'var(--color-pad-triggered)' : 'var(--color-border)'};
   cursor: pointer;
   font-size: 1.4rem;
   font-weight: 600;
