@@ -22,6 +22,19 @@ export default class SamplePlayer {
     this._pads = pads
   }
 
+  // *** Public Methods ***
+
+  playSample(key) {
+    console.log('Play Sample')
+
+    this._pads.forEach(pad => {
+      if (pad.key === key) {
+        const player = this.samplePlayers.get(pad.name)
+        player.start()
+      }
+    })
+  }
+
   // *** Private methods ***
 
   _createPads(padsData) {
@@ -36,7 +49,6 @@ export default class SamplePlayer {
       name: createKeyFromString(pad.name),
       soundUrl: pad.url,
       key: pad.key,
-      isTriggerd: false,
     }
   }
 

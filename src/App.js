@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import styled from 'styled-components/macro'
-import { padPlayer, playPadByKey, playPadByTouch } from './common/padPlayer'
+import { padPlayer, playPadByTouch } from './common/padPlayer'
 import { padsData } from './common/padsData'
 import { getPadIndexByKey, updateInArray } from './common/utils'
 import InfoButton from './components/Buttons/InfoButton'
@@ -26,9 +26,8 @@ export default function App() {
 
   function onKeyDown(event) {
     const key = event.key
-
+    samplePlayer.playSample(key)
     const index = getPadIndexByKey(key, pads)
-    playPadByKey(key, pads)
     togglePadTriggerStatus(index, pads)
   }
 
