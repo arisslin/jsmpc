@@ -27,6 +27,10 @@ export default function App() {
   )
 
   function onKeyDown(event) {
+    if (event.repeat) {
+      return
+    }
+
     const key = event.key
     samplePlayer.playSample(key)
     setPadIsTriggered(key, true)
