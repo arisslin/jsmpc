@@ -1,6 +1,6 @@
 import { Players } from 'tone'
 import { padsData } from './padsData'
-import { createKeyFromString } from './utils'
+import { toLowerNoWhiteSpace } from './utils'
 
 const padUrls = createSoundUrls(padsData)
 
@@ -12,7 +12,7 @@ export function playPadByTouch(player) {
 
 function createSoundUrls(padsData) {
   let output = padsData.reduce((allUrls, pad) => {
-    allUrls[createKeyFromString(pad.name)] = pad.url
+    allUrls[toLowerNoWhiteSpace(pad.name)] = pad.url
     return allUrls
   }, {})
   return output

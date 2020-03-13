@@ -1,6 +1,6 @@
 import { Players } from 'tone'
 
-import { createKeyFromString } from './utils'
+import { toLowerNoWhiteSpace } from './utils'
 
 export default class SamplePlayer {
   constructor(padsData) {
@@ -56,7 +56,7 @@ export default class SamplePlayer {
 
   _createPad(pad) {
     return {
-      name: createKeyFromString(pad.name),
+      name: toLowerNoWhiteSpace(pad.name),
       soundUrl: pad.url,
       key: pad.key,
     }

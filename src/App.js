@@ -1,15 +1,14 @@
 import React, { useState } from 'react'
 import styled from 'styled-components/macro'
-import { padPlayer, playPadByTouch } from './common/padPlayer'
 import { padsData } from './common/padsData'
+import SamplePlayer from './common/SamplePlayer'
 import {
-  getPadIndexByKey,
+  stopPinchZooming,
+  toLowerNoWhiteSpace,
   updateInArray,
-  createKeyFromString,
 } from './common/utils'
 import InfoButton from './components/Buttons/InfoButton'
 import PadSection from './components/Pad/PadSection'
-import SamplePlayer from './common/SamplePlayer'
 
 const samplePlayer = new SamplePlayer(padsData)
 
@@ -22,7 +21,6 @@ export default function App() {
         pads={pads}
         handlePadTouchStart={handlePadTouchStart}
         handlePadTouchEnd={handlePadTouchEnd}
-        padPlayer={padPlayer}
       />
       <InfoButton />
     </AppStyled>
@@ -31,31 +29,30 @@ export default function App() {
   function onKeyDown(event) {
     const key = event.key
     samplePlayer.playSampleByKey(key)
-    const index = getPadIndexByKey(key, pads)
-    togglePadTriggerStatus(index, pads)
+    togglePadTriggerStatus(key)
   }
 
   function onKeyUp(event) {
     const key = event.key
-    const index = getPadIndexByKey(key, pads)
-    togglePadTriggerStatus(index, pads)
+    togglePadTriggerStatus(key)
   }
 
   function handlePadTouchStart(event) {
-    const target = event.target
-    const name = createKeyFromString(target.attributes.name.value)
+    const name = getElementNameByEvent(event)
+    const key = getKeyByName(name)
     samplePlayer.playSampleByName(name)
-
-    //togglePadTriggerStatus(index, pads)
-    // playPadByTouch(player)
+    togglePadTriggerStatus(key)
   }
 
-  function handlePadTouchEnd(index, event) {
+  function handlePadTouchEnd(event) {
     stopPinchZooming(event)
-    //togglePadTriggerStatus(index, pads)
+    const name = getElementNameByEvent(event)
+    const key = getKeyByName(name)
+    togglePadTriggerStatus(key)
   }
 
-  function togglePadTriggerStatus(index, pads) {
+  function togglePadTriggerStatus(key) {
+    const index = pads.findIndex(pad => pad.key === key)
     if (index > -1) {
       const pad = { ...pads[index] }
       pad.isTriggered = !pad.isTriggered
@@ -63,11 +60,20 @@ export default function App() {
       setPads(newPads)
     }
   }
-}
 
-function stopPinchZooming(event) {
-  // Stops the browser zooming when double tab on mobile devices
-  event.preventDefault()
+  function getElementNameByEvent(event) {
+    return event.target.attributes.name.value
+  }
+
+  function getKeyByName(name) {
+    const key = pads.reduce((acc, cur) => {
+      if (name === toLowerNoWhiteSpace(cur.name)) {
+        acc = acc + cur.key
+      }
+      return acc
+    }, '')
+    return key
+  }
 }
 
 const AppStyled = styled.div`
