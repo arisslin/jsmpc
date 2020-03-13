@@ -1,12 +1,10 @@
 import { Players } from 'tone'
 
-import { toLowerNoWhiteSpace } from './utils'
-
 export default class SamplePlayer {
   constructor(padsData) {
     this._pads = this._createPads(padsData)
     this.samplePlayers = new Players(
-      this._createSoundUrlsObject(this.pads)
+      this._createSoundUrlsObject(this._pads)
     ).toMaster()
   }
 
@@ -16,33 +14,15 @@ export default class SamplePlayer {
     return this._pads
   }
 
-  // *** setter ***
-
-  setPads(pads) {
-    this._pads = pads
-  }
-
   // *** Public Methods ***
 
-  playSampleByKey(key) {
+  playSample(key) {
     this._pads.forEach(pad => {
       if (pad.key === key) {
-        this.playSample(pad.name)
+        const player = this.samplePlayers.get(pad.key)
+        player.start()
       }
     })
-  }
-
-  playSampleByName(name) {
-    this._pads.forEach(pad => {
-      if (pad.name === name) {
-        this.playSample(name)
-      }
-    })
-  }
-
-  playSample(padName) {
-    const player = this.samplePlayers.get(padName)
-    player.start()
   }
 
   // *** Private methods ***
@@ -56,7 +36,6 @@ export default class SamplePlayer {
 
   _createPad(pad) {
     return {
-      name: toLowerNoWhiteSpace(pad.name),
       soundUrl: pad.url,
       key: pad.key,
     }
@@ -65,7 +44,7 @@ export default class SamplePlayer {
   _createSoundUrlsObject() {
     try {
       let urls = this._pads.reduce((allUrls, pad) => {
-        allUrls[pad.name] = pad.soundUrl
+        allUrls[pad.key] = pad.soundUrl
         return allUrls
       }, {})
       return urls

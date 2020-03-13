@@ -28,7 +28,7 @@ export default function App() {
 
   function onKeyDown(event) {
     const key = event.key
-    samplePlayer.playSampleByKey(key)
+    samplePlayer.playSample(key)
     togglePadTriggerStatus(key)
   }
 
@@ -40,7 +40,7 @@ export default function App() {
   function handlePadTouchStart(event) {
     const name = getElementNameByEvent(event)
     const key = getKeyByName(name)
-    samplePlayer.playSampleByName(name)
+    samplePlayer.playSample(key)
     togglePadTriggerStatus(key)
   }
 
