@@ -1,30 +1,23 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components/macro'
+import { toLowerNoWhiteSpace } from '../../common/utils'
 
 Pad.propTypes = {
   name: PropTypes.string.isRequired,
-  index: PropTypes.number.isRequired,
   onTouchStart: PropTypes.func.isRequired,
   onTouchEnd: PropTypes.func.isRequired,
-  player: PropTypes.object,
   isTriggered: PropTypes.bool.isRequired,
 }
 
-export default function Pad({
-  name,
-  index,
-  onTouchStart,
-  onTouchEnd,
-  player,
-  isTriggered,
-}) {
+export default function Pad({ name, onTouchStart, onTouchEnd, isTriggered }) {
   return (
     <PadStyled
-      onTouchStart={() => onTouchStart(index, player)}
-      onTouchEnd={event => onTouchEnd(index, event)}
-      onMouseDown={() => onTouchStart(index, player)}
-      onMouseUp={event => onTouchEnd(index, event)}
+      name={toLowerNoWhiteSpace(name)}
+      onTouchStart={event => onTouchStart(event)}
+      onTouchEnd={event => onTouchEnd(event)}
+      onMouseDown={event => onTouchStart(event)}
+      onMouseUp={event => onTouchEnd(event)}
       isTriggered={isTriggered}
     >
       <span>{name}</span>
