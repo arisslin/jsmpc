@@ -16,7 +16,14 @@ export default function App() {
   const [pads, setPads] = useState(padsData)
 
   return (
-    <AppStyled onKeyDown={onKeyDown} onKeyUp={onKeyUp} tabIndex="0">
+    <AppStyled
+      onKeyDown={onKeyDown}
+      onKeyUp={onKeyUp}
+      onContextMenu={event => {
+        event.preventDefault()
+      }}
+      tabIndex="0"
+    >
       <PadSection
         pads={pads}
         handlePadTouchStart={handlePadTouchStart}
@@ -27,35 +34,39 @@ export default function App() {
   )
 
   function onKeyDown(event) {
+    if (event.repeat) {
+      return
+    }
+
     const key = event.key
     samplePlayer.playSample(key)
-    togglePadTriggerStatus(key)
+    setPadIsTriggered(key, true)
   }
 
   function onKeyUp(event) {
     const key = event.key
-    togglePadTriggerStatus(key)
+    setPadIsTriggered(key, false)
   }
 
   function handlePadTouchStart(event) {
     const name = getElementNameByEvent(event)
     const key = getKeyByName(name)
     samplePlayer.playSample(key)
-    togglePadTriggerStatus(key)
+    setPadIsTriggered(key, true)
   }
 
   function handlePadTouchEnd(event) {
     stopPinchZooming(event)
     const name = getElementNameByEvent(event)
     const key = getKeyByName(name)
-    togglePadTriggerStatus(key)
+    setPadIsTriggered(key, false)
   }
 
-  function togglePadTriggerStatus(key) {
+  function setPadIsTriggered(key, triggerd) {
     const index = pads.findIndex(pad => pad.key === key)
     if (index > -1) {
       const pad = { ...pads[index] }
-      pad.isTriggered = !pad.isTriggered
+      pad.isTriggered = triggerd
       const newPads = updateInArray(pads, pad, index)
       setPads(newPads)
     }
