@@ -16,7 +16,14 @@ export default function App() {
   const [pads, setPads] = useState(padsData)
 
   return (
-    <AppStyled onKeyDown={onKeyDown} onKeyUp={onKeyUp} tabIndex="0">
+    <AppStyled
+      onKeyDown={onKeyDown}
+      onKeyUp={onKeyUp}
+      onContextMenu={event => {
+        event.preventDefault()
+      }}
+      tabIndex="0"
+    >
       <PadSection
         pads={pads}
         handlePadTouchStart={handlePadTouchStart}
