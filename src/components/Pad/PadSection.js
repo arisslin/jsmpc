@@ -57,6 +57,12 @@ const PadSectionStyled = styled.section`
     justify-self: center;
   }
 
+  @media (orientation: landscape) and (min-height: 900px) {
+    height: 600px;
+    width: 600px;
+    justify-self: center;
+  }
+
   @media (orientation: portrait) {
     height: 100%;
   }
@@ -64,6 +70,12 @@ const PadSectionStyled = styled.section`
   @media (orientation: portrait) and (min-width: 532px) {
     height: 512px;
     width: 512px;
+    justify-self: center;
+  }
+
+  @media (orientation: portrait) and (min-width: 900px) {
+    height: 600px;
+    width: 600px;
     justify-self: center;
   }
 `
