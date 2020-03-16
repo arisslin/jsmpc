@@ -4,7 +4,7 @@ export default createGlobalStyle`
   :root{
     /* Colors */
     --color-button-light: #d6d6d6;
-    --color-border: #414649;
+    --color-border: #515659;
     --color-dark: #32373a;
     --color-display: #e2ecee;
     --color-display-border: #696e72;
