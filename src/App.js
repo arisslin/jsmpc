@@ -103,9 +103,17 @@ const AppStyled = styled.div`
     grid-template-areas: 'left middle right';
   }
 
+  @media (orientation: landscape) and (min-height: 532px) {
+    grid-template-columns: auto 512px auto;
+  }
+
   @media (orientation: portrait) {
     grid-template-rows: auto calc(100vmin - var(--pad-section-padding) * 2) auto;
     grid-template-columns: auto;
-    grid-template-areas: 'left' 'middle' 'right';
+    grid-template-areas: 'top' 'middle' 'bottom';
+  }
+
+  @media (orientation: portrait) and (min-width: 532px) {
+    grid-template-rows: auto 512px auto;
   }
 `

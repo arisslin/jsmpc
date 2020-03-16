@@ -49,26 +49,19 @@ const PadSectionStyled = styled.section`
 
   @media (orientation: landscape) {
     height: 100%;
+  }
 
-    /* @media (min-height: 576px) {
-      height: 500px;
-      width: calc(500px - var(--pad-section-padding) * 2);
-    } */
-
-    /* @media (min-width: 992px) {
-    }
-
-    @media (min-width: 1200px) {
-    } */
+  @media (orientation: landscape) and (min-height: 532px) {
+    height: 512px;
   }
 
   @media (orientation: portrait) {
     height: 100%;
-    /* height: calc(100vmin - var(--pad-section-padding) * 2); */
+  }
 
-    /* @media (min-width: 740px) {
-      width: 80%;
-      height: calc(80vmin - var(--pad-section-padding) * 2);
-    } */
+  @media (orientation: portrait) and (min-width: 532px) {
+    height: 100%;
+    width: 512px;
+    justify-self: center;
   }
 `
