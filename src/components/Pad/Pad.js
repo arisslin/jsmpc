@@ -29,9 +29,12 @@ const PadStyled = styled.div`
   position: relative;
   border: 2px solid;
   border-color: ${props =>
-    props.isTriggered ? 'var(--color-pad-triggered)' : 'var(--color-dark)'};
+    props.isTriggered
+      ? 'var(--color-pad-border-triggered)'
+      : 'var(--color-dark)'};
   border-radius: 3px;
-  background-color: var(--color-pad-grey);
+  background-color: ${props =>
+    props.isTriggered ? 'var(--color-pad-triggered)' : 'var(--color-pad)'};
   box-shadow: ${props =>
     props.isTriggered
       ? 'var(--element-triggered-shadow)'

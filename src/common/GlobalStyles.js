@@ -9,8 +9,9 @@ export default createGlobalStyle`
     --color-display: #e2ecee;
     --color-display-border: #696e72;
     --color-mpc-chassis: #E8E8E8;
-    --color-pad-grey: #7F7E7A;
-    --color-pad-triggered: #c72400;
+    --color-pad: #7F7E7A;
+    --color-pad-triggered: #80706d;
+    --color-pad-border-triggered: #c72400;
     --blue-grey-light: #A6ADB5;
     --blue-grey-medium: #7A8490;
     
