@@ -92,17 +92,21 @@ export default function App() {
 }
 
 const AppStyled = styled.div`
-  display: flex;
+  display: grid;
+  grid-gap: 10px;
   height: 100vh;
   padding: var(--pad-section-padding);
   background: var(--color-mpc-chassis);
   justify-content: center;
 
   @media (orientation: landscape) {
-    flex-direction: row;
+    grid-template-columns: 1fr calc(100vmin - var(--pad-section-padding) * 2);
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas:
+      'display pad-section'
+      'controlls pad-section';
   }
 
   @media (orientation: portrait) {
-    flex-direction: column;
   }
 `
