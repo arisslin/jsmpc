@@ -13,12 +13,13 @@ export default function Button({ text }) {
 }
 
 const ButtonStyled = styled.button`
-  margin-left: 10px;
+  flex-wrap: wrap;
+  margin-left: 8px;
   border: 2px solid;
   border-color: var(--color-border);
   border-radius: 3px;
-  height: 40px;
-  width: 80px;
+  padding: 8px;
+  width: 70px;
   background-color: ${props =>
     props.active ? 'var(--blue-grey-light)' : 'var(--color-button-light)'};
   box-shadow: ${props => (props.active ? 'none' : 'var(--element-box-shadow)')};
