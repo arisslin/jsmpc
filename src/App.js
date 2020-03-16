@@ -110,5 +110,11 @@ const AppStyled = styled.div`
   }
 
   @media (orientation: portrait) {
+    grid-template-columns: 100%;
+    grid-template-rows: 1fr 1fr calc(100vmin - var(--pad-section-padding) * 2);
+    grid-template-areas:
+      'display'
+      'controls'
+      'pad-section';
   }
 `
