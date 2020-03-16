@@ -45,14 +45,4 @@ const PadSectionStyled = styled.section`
   background-color: var(--blue-grey-light);
 
   grid-area: pad-section;
-
-  @media (orientation: landscape) {
-    /* height: 100%;
-    width: calc(100vmin - var(--pad-section-padding) * 2); */
-  }
-
-  @media (orientation: portrait) {
-    /* width: 100%;
-    height: calc(100vmin - var(--pad-section-padding) * 2); */
-  }
 `
