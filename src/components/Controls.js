@@ -6,7 +6,8 @@ export default function Controls() {
   return (
     <ControlsStyled>
       <Button text="?" />
-      <Button text="A" />
+      <Button text="Main" />
+      <Button text="Pads" />
     </ControlsStyled>
   )
 }
