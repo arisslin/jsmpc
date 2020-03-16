@@ -30,6 +30,9 @@ export default function App() {
       tabIndex="0"
     >
       <Display />
+      <Title>
+        js MPC 2000 <span>Music Production Center</span>
+      </Title>
       <Controls />
       <PadSection
         pads={pads}
@@ -95,7 +98,7 @@ export default function App() {
 
 const AppStyled = styled.div`
   display: grid;
-  grid-gap: 10px;
+  grid-gap: 16px;
   height: 100vh;
   padding: var(--pad-section-padding);
   background: var(--color-mpc-chassis);
@@ -103,18 +106,42 @@ const AppStyled = styled.div`
 
   @media (orientation: landscape) {
     grid-template-columns: 1fr calc(100vmin - var(--pad-section-padding) * 2);
-    grid-template-rows: 1fr 1fr;
+    grid-template-rows: 1fr auto auto;
     grid-template-areas:
       'display pad-section'
+      'title pad-section'
       'controls pad-section';
   }
 
   @media (orientation: portrait) {
     grid-template-columns: 100%;
-    grid-template-rows: 1fr 1fr calc(100vmin - var(--pad-section-padding) * 2);
+    grid-template-rows: 1fr auto auto calc(
+        100vmin - var(--pad-section-padding) * 2
+      );
     grid-template-areas:
       'display'
       'controls'
+      'title'
       'pad-section';
+  }
+`
+
+const Title = styled.h1`
+  grid-area: title;
+  margin: 0;
+  padding: 4px;
+  color: var(--color-border);
+  letter-spacing: 2px;
+  font-size: 16px;
+  font-style: italic;
+  font-weight: 200;
+  text-align: center;
+  text-shadow: var(--element-inside-text-shadow);
+  user-select: none;
+
+  span {
+    font-size: 14px;
+    font-variant: small-caps;
+    font-style: normal;
   }
 `

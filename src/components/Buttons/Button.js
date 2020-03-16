@@ -25,7 +25,7 @@ const ButtonStyled = styled.button`
   color: ${props =>
     props.active ? 'var(--color-pad-triggered)' : 'var(--color-border)'};
   cursor: pointer;
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   font-weight: 600;
   text-shadow: var(--element-inside-text-shadow);
   user-select: none;

@@ -5,9 +5,9 @@ import Button from './Buttons/Button'
 export default function Controls() {
   return (
     <ControlsStyled>
-      <Button text="?" />
       <Button text="Main" />
       <Button text="Pads" />
+      <Button text="?" />
     </ControlsStyled>
   )
 }
@@ -15,4 +15,8 @@ export default function Controls() {
 const ControlsStyled = styled.section`
   grid-area: controls;
   display: flex;
+  justify-content: center;
+  @media (orientation: landscape) {
+    padding-bottom: 14px;
+  }
 `
