@@ -2,7 +2,13 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components/macro'
 import Pad from './Pad'
-import { toLowerNoWhiteSpace } from '../../common/utils'
+import {
+  BREAKPOINT_S,
+  BREAKPOINT_M,
+  BREAKPOINT_L,
+  BREAKPOINT_XL,
+  toLowerNoWhiteSpace,
+} from '../../common/utils'
 
 PadSection.propTypes = {
   pads: PropTypes.array.isRequired,
