@@ -17,10 +17,6 @@ export default function InfoButton() {
 }
 
 const ButtonStyled = styled.button`
-  display: none;
-  position: absolute;
-  right: 0;
-  margin-right: 10px;
   border: 2px solid;
   border-color: var(--color-border);
   border-radius: 3px;
@@ -36,8 +32,4 @@ const ButtonStyled = styled.button`
   font-weight: 600;
   text-shadow: var(--element-inside-text-shadow);
   user-select: none;
-
-  @media (orientation: landscape) and (min-width: 1200px) {
-    display: inline-block;
-  }
 `

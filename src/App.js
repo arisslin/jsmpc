@@ -8,7 +8,6 @@ import {
   updateInArray,
   focusElementAfterLoad,
 } from './common/utils'
-import InfoButton from './components/Buttons/InfoButton'
 import PadSection from './components/Pad/PadSection'
 import Display from './components/Display'
 import Controls from './components/Controls'
@@ -37,7 +36,6 @@ export default function App() {
         handlePadTouchStart={handlePadTouchStart}
         handlePadTouchEnd={handlePadTouchEnd}
       />
-      <InfoButton />
     </AppStyled>
   )
 

@@ -56,8 +56,7 @@ export function TableRow({ shortcut, action }) {
 }
 
 const TooltipStyled = styled.div`
-  display: none;
-  position: absolute;
+  display: ${props => (props.visible ? 'inline-block' : 'none')};
   top: 60px;
   right: 10px;
   border: 1px solid;
@@ -70,10 +69,6 @@ const TooltipStyled = styled.div`
   color: var(--color-border);
   text-shadow: var(--element-inside-text-shadow);
   user-select: none;
-
-  @media (orientation: landscape) and (min-width: 1200px) {
-    display: ${props => (props.visible ? 'inline-block' : 'none')};
-  }
 
   h3 {
     margin-top: 4px;
