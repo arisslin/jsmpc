@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
 import styled from 'styled-components/macro'
 import { padsData } from './common/padsData'
 import SamplePlayer from './common/SamplePlayer'
@@ -6,6 +6,7 @@ import {
   stopPinchZooming,
   toLowerNoWhiteSpace,
   updateInArray,
+  focusElementAfterLoad,
 } from './common/utils'
 import InfoButton from './components/Buttons/InfoButton'
 import PadSection from './components/Pad/PadSection'
@@ -14,9 +15,12 @@ const samplePlayer = new SamplePlayer(padsData)
 
 export default function App() {
   const [pads, setPads] = useState(padsData)
+  const appElement = useRef(null)
+  focusElementAfterLoad(appElement)
 
   return (
     <AppStyled
+      ref={appElement}
       onKeyDown={onKeyDown}
       onKeyUp={onKeyUp}
       onContextMenu={event => {
