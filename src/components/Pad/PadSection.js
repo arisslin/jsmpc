@@ -2,13 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components/macro'
 import Pad from './Pad'
-import {
-  BREAKPOINT_S,
-  BREAKPOINT_M,
-  BREAKPOINT_L,
-  BREAKPOINT_XL,
-  toLowerNoWhiteSpace,
-} from '../../common/utils'
+import { toLowerNoWhiteSpace } from '../../common/utils'
 
 PadSection.propTypes = {
   pads: PropTypes.array.isRequired,
@@ -41,6 +35,7 @@ export default function PadSection({
 }
 
 const PadSectionStyled = styled.section`
+  align-self: center;
   grid-area: pad-section;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -50,14 +45,30 @@ const PadSectionStyled = styled.section`
   border: 2px solid var(--blue-grey-medium);
   border-radius: 3px;
   background-color: var(--blue-grey-light);
+  grid-area: middle;
 
   @media (orientation: landscape) {
     height: 100%;
-    width: calc(100vmin - var(--pad-section-padding) * 2);
+
+    /* @media (min-height: 576px) {
+      height: 500px;
+      width: calc(500px - var(--pad-section-padding) * 2);
+    } */
+
+    /* @media (min-width: 992px) {
+    }
+
+    @media (min-width: 1200px) {
+    } */
   }
 
   @media (orientation: portrait) {
-    width: 100%;
-    height: calc(100vmin - var(--pad-section-padding) * 2);
+    height: 100%;
+    /* height: calc(100vmin - var(--pad-section-padding) * 2); */
+
+    /* @media (min-width: 740px) {
+      width: 80%;
+      height: calc(80vmin - var(--pad-section-padding) * 2);
+    } */
   }
 `

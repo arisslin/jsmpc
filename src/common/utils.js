@@ -1,8 +1,3 @@
-export const BREAKPOINT_S = '576px'
-export const BREAKPOINT_M = '768px'
-export const BREAKPOINT_L = '992px'
-export const BREAKPOINT_XL = '1200px'
-
 export function toLowerNoWhiteSpace(string) {
   string = String(string)
   return string.toLowerCase().replace(' ', '')

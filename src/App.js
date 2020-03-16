@@ -92,17 +92,20 @@ export default function App() {
 }
 
 const AppStyled = styled.div`
-  display: flex;
+  display: grid;
   height: 100vh;
   padding: var(--pad-section-padding);
   background: var(--color-mpc-chassis);
-  justify-content: center;
 
   @media (orientation: landscape) {
-    flex-direction: row;
+    grid-template-columns: auto calc(100vmin - var(--pad-section-padding) * 2) auto;
+    grid-template-rows: auto;
+    grid-template-areas: 'left middle right';
   }
 
   @media (orientation: portrait) {
-    flex-direction: column;
+    grid-template-rows: auto calc(100vmin - var(--pad-section-padding) * 2) auto;
+    grid-template-columns: auto;
+    grid-template-areas: 'left' 'middle' 'right';
   }
 `
