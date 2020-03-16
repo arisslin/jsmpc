@@ -45,4 +45,6 @@ const PadSectionStyled = styled.section`
   background-color: var(--blue-grey-light);
 
   grid-area: pad-section;
+
+  /* @media (orientation: landscape) a */
 `
