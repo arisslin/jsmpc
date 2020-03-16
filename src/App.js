@@ -104,7 +104,7 @@ const AppStyled = styled.div`
   }
 
   @media (orientation: landscape) and (min-height: 532px) {
-    grid-template-columns: auto 512px auto;
+    grid-template-columns: auto auto auto;
   }
 
   @media (orientation: portrait) {
@@ -114,6 +114,6 @@ const AppStyled = styled.div`
   }
 
   @media (orientation: portrait) and (min-width: 532px) {
-    grid-template-rows: auto 512px auto;
+    grid-template-rows: auto auto auto;
   }
 `
