@@ -1,18 +1,14 @@
 import React, { useState } from 'react'
 import styled from 'styled-components/macro'
-import Tooltip from '../Tooltip'
 
 export default function InfoButton() {
   const [active, setActive] = useState(false)
   const onClick = () => setActive(!active)
 
   return (
-    <>
-      <ButtonStyled active={active} onClick={onClick}>
-        ?
-      </ButtonStyled>
-      <Tooltip visible={active} onClick={onClick} />
-    </>
+    <ButtonStyled active={active} onClick={onClick}>
+      ?
+    </ButtonStyled>
   )
 }
 
