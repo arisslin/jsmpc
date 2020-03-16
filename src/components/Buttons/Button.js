@@ -1,18 +1,19 @@
 import React, { useState } from 'react'
 import styled from 'styled-components/macro'
 
-export default function Button() {
+export default function Button({ text }) {
   const [active, setActive] = useState(false)
   const onClick = () => setActive(!active)
 
   return (
     <ButtonStyled active={active} onClick={onClick}>
-      ?
+      {text}
     </ButtonStyled>
   )
 }
 
 const ButtonStyled = styled.button`
+  margin-left: 10px;
   border: 2px solid;
   border-color: var(--color-border);
   border-radius: 3px;
@@ -28,4 +29,8 @@ const ButtonStyled = styled.button`
   font-weight: 600;
   text-shadow: var(--element-inside-text-shadow);
   user-select: none;
+
+  :first-child {
+    margin-left: 0;
+  }
 `

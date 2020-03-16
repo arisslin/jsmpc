@@ -5,11 +5,13 @@ import Button from './Buttons/Button'
 export default function Controls() {
   return (
     <ControlsStyled>
-      <Button />
+      <Button text="?" />
+      <Button text="A" />
     </ControlsStyled>
   )
 }
 
 const ControlsStyled = styled.section`
   grid-area: controls;
+  display: flex;
 `
