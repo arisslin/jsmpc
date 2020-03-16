@@ -6,6 +6,8 @@ export default createGlobalStyle`
     --color-button-light: #d6d6d6;
     --color-border: #414649;
     --color-dark: #32373a;
+    --color-display: #e2ecee;
+    --color-display-border: #696e72;
     --color-mpc-chassis: #E8E8E8;
     --color-pad-grey: #7F7E7A;
     --color-pad-triggered: #c72400;

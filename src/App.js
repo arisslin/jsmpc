@@ -10,6 +10,7 @@ import {
 } from './common/utils'
 import InfoButton from './components/Buttons/InfoButton'
 import PadSection from './components/Pad/PadSection'
+import Display from './components/Display'
 
 const samplePlayer = new SamplePlayer(padsData)
 
@@ -28,6 +29,7 @@ export default function App() {
       }}
       tabIndex="0"
     >
+      <Display />
       <PadSection
         pads={pads}
         handlePadTouchStart={handlePadTouchStart}
