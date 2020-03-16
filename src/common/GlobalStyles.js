@@ -23,6 +23,7 @@ export default createGlobalStyle`
 
   * {
     box-sizing: border-box;
+    touch-action: pan-x pan-y;
   }
 
   body {
