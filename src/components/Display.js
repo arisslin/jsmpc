@@ -2,7 +2,14 @@ import React from 'react'
 import styled from 'styled-components/macro'
 
 export default function Display() {
-  return <DisplayStyled>Test</DisplayStyled>
+  return (
+    <DisplayStyled>
+      <p>Test</p>
+      <p>
+        <span class="display-invert">Test</span>
+      </p>
+    </DisplayStyled>
+  )
 }
 
 const DisplayStyled = styled.section`
@@ -14,4 +21,9 @@ const DisplayStyled = styled.section`
   padding: 6px;
   color: var(--color-display-font);
   letter-spacing: -1px;
+
+  .display-invert {
+    color: var(--color-display);
+    background-color: var(--color-display-font);
+  }
 `
