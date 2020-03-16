@@ -11,6 +11,7 @@ import {
 import InfoButton from './components/Buttons/InfoButton'
 import PadSection from './components/Pad/PadSection'
 import Display from './components/Display'
+import Controls from './components/Controls'
 
 const samplePlayer = new SamplePlayer(padsData)
 
@@ -30,6 +31,7 @@ export default function App() {
       tabIndex="0"
     >
       <Display />
+      <Controls />
       <PadSection
         pads={pads}
         handlePadTouchStart={handlePadTouchStart}
@@ -106,7 +108,7 @@ const AppStyled = styled.div`
     grid-template-rows: 1fr 1fr;
     grid-template-areas:
       'display pad-section'
-      'controlls pad-section';
+      'controls pad-section';
   }
 
   @media (orientation: portrait) {
