@@ -1,11 +1,11 @@
 import React from 'react'
 import styled from 'styled-components/macro'
-import InfoButton from './Buttons/InfoButton'
+import Button from './Buttons/Button'
 
 export default function Controls() {
   return (
     <ControlsStyled>
-      <InfoButton />
+      <Button />
     </ControlsStyled>
   )
 }

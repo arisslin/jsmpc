@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import styled from 'styled-components/macro'
 
-export default function InfoButton() {
+export default function Button() {
   const [active, setActive] = useState(false)
   const onClick = () => setActive(!active)
 
