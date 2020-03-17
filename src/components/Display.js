@@ -1,13 +1,11 @@
 import React from 'react'
 import styled from 'styled-components/macro'
+import DisplayPageMain from './DisplayPages/DisplayPageMain'
 
 export default function Display() {
   return (
     <DisplayStyled>
-      <p>Test</p>
-      <p>
-        <span className="display-invert">Test</span>
-      </p>
+      <DisplayPageMain />
     </DisplayStyled>
   )
 }
