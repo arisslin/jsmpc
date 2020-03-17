@@ -4,7 +4,7 @@ import styled from 'styled-components/macro'
 export default function DisplayPageInfo() {
   return (
     <DisplayPageInfoStyled>
-      <h2>Info Page</h2>
+      <h2>Info</h2>
     </DisplayPageInfoStyled>
   )
 }

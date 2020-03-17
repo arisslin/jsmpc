@@ -4,7 +4,7 @@ import styled from 'styled-components/macro'
 export default function DisplayPagePad() {
   return (
     <DisplayPagePadStyled>
-      <h2>Pad Page</h2>
+      <h2>Pad Settings</h2>
     </DisplayPagePadStyled>
   )
 }
