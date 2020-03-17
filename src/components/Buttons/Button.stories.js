@@ -11,7 +11,7 @@ export const ButtonDefault = () => {
   return (
     <>
       <GlobalStyles />
-      <Button />
+      <Button text="?" />
     </>
   )
 }
