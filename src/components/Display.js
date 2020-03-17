@@ -1,11 +1,13 @@
 import React from 'react'
 import styled from 'styled-components/macro'
 import DisplayPageMain from './DisplayPages/DisplayPageMain'
+import DisplayPagePad from './DisplayPages/DisplayPagePad'
 
 export default function Display() {
   return (
     <DisplayStyled>
       <DisplayPageMain />
+      <DisplayPagePad />
     </DisplayStyled>
   )
 }
