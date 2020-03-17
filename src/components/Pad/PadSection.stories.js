@@ -2,7 +2,6 @@ import React from 'react'
 import PadSection from './PadSection'
 import GlobalStyles from '../../common/GlobalStyles'
 import { padsData } from '../../common/padsData'
-import { padPlayer } from '../../common/padPlayer'
 
 export default {
   title: 'Pads',
@@ -12,14 +11,13 @@ export default {
 export const DefaultPadSection = () => (
   <div
     style={{
-      display: 'flex',
-      justifyContent: 'center',
+      display: 'grid',
+      width: 400,
+      height: 400,
       padding: 10,
-      height: '375px',
-      width: '375px',
     }}
   >
     <GlobalStyles />
-    <PadSection pads={padsData} padPlayer={padPlayer} />
+    <PadSection pads={padsData} />
   </div>
 )
