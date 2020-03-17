@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import styled from 'styled-components/macro'
+import { NavLink } from 'react-router-dom'
 
 export default function Button({ text }) {
   const [active, setActive] = useState(false)
@@ -12,7 +13,7 @@ export default function Button({ text }) {
   )
 }
 
-const ButtonStyled = styled.button`
+const ButtonStyled = styled(NavLink)`
   flex-wrap: wrap;
   margin-left: 8px;
   border: 2px solid;

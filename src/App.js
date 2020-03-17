@@ -11,6 +11,7 @@ import {
 import PadSection from './components/Pad/PadSection'
 import Display from './components/Display'
 import Controls from './components/Controls'
+import { BrowserRouter as Router } from 'react-router-dom'
 
 const samplePlayer = new SamplePlayer(padsData)
 
@@ -20,26 +21,28 @@ export default function App() {
   focusElementAfterLoad(appElement)
 
   return (
-    <AppStyled
-      ref={appElement}
-      onKeyDown={onKeyDown}
-      onKeyUp={onKeyUp}
-      onContextMenu={event => {
-        event.preventDefault()
-      }}
-      tabIndex="0"
-    >
-      <Display />
-      <Title>
-        jsMPC 2000 <span>Music Production Center</span>
-      </Title>
-      <Controls />
-      <PadSection
-        pads={pads}
-        handlePadTouchStart={handlePadTouchStart}
-        handlePadTouchEnd={handlePadTouchEnd}
-      />
-    </AppStyled>
+    <Router>
+      <AppStyled
+        ref={appElement}
+        onKeyDown={onKeyDown}
+        onKeyUp={onKeyUp}
+        onContextMenu={event => {
+          event.preventDefault()
+        }}
+        tabIndex="0"
+      >
+        <Display />
+        <Title>
+          jsMPC 2000 <span>Music Production Center</span>
+        </Title>
+        <Controls />
+        <PadSection
+          pads={pads}
+          handlePadTouchStart={handlePadTouchStart}
+          handlePadTouchEnd={handlePadTouchEnd}
+        />
+      </AppStyled>
+    </Router>
   )
 
   function onKeyDown(event) {
