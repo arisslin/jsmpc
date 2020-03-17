@@ -31,7 +31,7 @@ export default function App() {
     >
       <Display />
       <Title>
-        js MPC 2000 <span>Music Production Center</span>
+        jsMPC 2000 <span>Music Production Center</span>
       </Title>
       <Controls />
       <PadSection
