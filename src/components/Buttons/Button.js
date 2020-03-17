@@ -24,7 +24,7 @@ const ButtonStyled = styled.button`
     props.active ? 'var(--blue-grey-light)' : 'var(--color-button-light)'};
   box-shadow: ${props => (props.active ? 'none' : 'var(--element-box-shadow)')};
   color: ${props =>
-    props.active ? 'var(--color-pad-triggered)' : 'var(--color-border)'};
+    props.active ? 'var(--color-pad-border-triggered)' : 'var(--color-border)'};
   cursor: pointer;
   font-size: 1.2rem;
   font-weight: 600;
