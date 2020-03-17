@@ -10,5 +10,5 @@ export default function DisplayPagePad() {
 }
 
 const DisplayPagePadStyled = styled.article`
-  display: none;
+  display: flex;
 `

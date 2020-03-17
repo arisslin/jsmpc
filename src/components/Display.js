@@ -3,14 +3,27 @@ import styled from 'styled-components/macro'
 import DisplayPageMain from './DisplayPages/DisplayPageMain'
 import DisplayPagePad from './DisplayPages/DisplayPagePad'
 import DisplayPageInfo from './DisplayPages/DisplayPageInfo'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
 export default function Display() {
   return (
-    <DisplayStyled>
-      <DisplayPageMain />
-      <DisplayPagePad />
-      <DisplayPageInfo />
-    </DisplayStyled>
+    <Router>
+      <DisplayStyled>
+        <Switch>
+          <Route exact path="/">
+            <DisplayPageMain />
+          </Route>
+
+          <Route path="/pad">
+            <DisplayPagePad />
+          </Route>
+
+          <Route path="/info">
+            <DisplayPageInfo />
+          </Route>
+        </Switch>
+      </DisplayStyled>
+    </Router>
   )
 }
 

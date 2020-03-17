@@ -10,5 +10,5 @@ export default function DisplayPageInfo() {
 }
 
 const DisplayPageInfoStyled = styled.article`
-  display: none;
+  display: flex;
 `
