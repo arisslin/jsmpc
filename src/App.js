@@ -59,6 +59,7 @@ export default function App() {
 
   function handlePadTouchStart(event) {
     const name = getElementNameByEvent(event)
+
     const key = getKeyByName(name)
     samplePlayer.playSample(key)
     setPadIsTriggered(key, true)
@@ -82,7 +83,9 @@ export default function App() {
   }
 
   function getElementNameByEvent(event) {
-    return event.target.attributes.name.value
+    if (event.target.attributes.name) {
+      return event.target.attributes.name.value
+    }
   }
 
   function getKeyByName(name) {

@@ -6,7 +6,7 @@ export default function Display() {
     <DisplayStyled>
       <p>Test</p>
       <p>
-        <span class="display-invert">Test</span>
+        <span className="display-invert">Test</span>
       </p>
     </DisplayStyled>
   )
