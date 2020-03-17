@@ -2,19 +2,19 @@ import React from 'react'
 import styled from 'styled-components/macro'
 import { NavLink } from 'react-router-dom'
 
-export default function Controls() {
+export default function DisplayNav() {
   return (
-    <ControlsStyled>
+    <DisplayNavStyled>
       <LinkStyled exact to="/">
         Main
       </LinkStyled>
       <LinkStyled to="/pad">Pad</LinkStyled>
       <LinkStyled to="/info">?</LinkStyled>
-    </ControlsStyled>
+    </DisplayNavStyled>
   )
 }
 
-const ControlsStyled = styled.nav`
+const DisplayNavStyled = styled.nav`
   grid-area: controls;
   display: flex;
   justify-content: center;

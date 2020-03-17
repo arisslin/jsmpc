@@ -10,7 +10,7 @@ import {
 } from './common/utils'
 import PadSection from './components/Pad/PadSection'
 import Display from './components/Display'
-import Controls from './components/Controls'
+import DisplayNav from './components/DisplayNav'
 import { BrowserRouter as Router } from 'react-router-dom'
 
 const samplePlayer = new SamplePlayer(padsData)
@@ -35,7 +35,7 @@ export default function App() {
         <Title>
           jsMPC 2000 <span>Music Production Center</span>
         </Title>
-        <Controls />
+        <DisplayNav />
         <PadSection
           pads={pads}
           handlePadTouchStart={handlePadTouchStart}
