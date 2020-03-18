@@ -5,7 +5,7 @@ import styled from 'styled-components/macro'
 export default function DisplayNav() {
   return (
     <DisplayNavStyled>
-      <LinkStyled className="active" exact to="/">
+      <LinkStyled exact to="/">
         Main
       </LinkStyled>
       <LinkStyled to="/pad">Pad</LinkStyled>
