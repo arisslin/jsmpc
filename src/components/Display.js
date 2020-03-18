@@ -35,17 +35,4 @@ const DisplayStyled = styled.section`
   color: var(--color-display-font);
   letter-spacing: -1px;
   overflow-y: scroll;
-
-  h2 {
-    margin: 0;
-    font-size: 1.2rem;
-  }
-
-  hr {
-    width: 100%;
-    border: none;
-    background-color: var(--color-display-font);
-    height: 2px;
-    margin: 6px 0 16px 0;
-  }
 `

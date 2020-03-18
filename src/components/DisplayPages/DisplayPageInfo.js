@@ -1,33 +1,18 @@
 import React from 'react'
+import DisplayPageTitle from './DisplayPageTitle'
+import { padsData } from '../../common/padsData'
 import styled from 'styled-components/macro'
 
 export default function DisplayPageInfo() {
   return (
-    <DisplayPageInfoStyled>
-      <h2>Keyboad shortcuts</h2>
-      <hr />
+    <PageStyled>
+      <DisplayPageTitle title="Keyboard shortcuts" />
       <section className="keyboard">
-        <Key char="1" />
-        <Key char="2" />
-        <Key char="3" />
-        <Key char="4" />
-
-        <Key char="q" />
-        <Key char="w" />
-        <Key char="e" />
-        <Key char="r" />
-
-        <Key char="a" />
-        <Key char="s" />
-        <Key char="d" />
-        <Key char="f" />
-
-        <Key char="y" />
-        <Key char="x" />
-        <Key char="c" />
-        <Key char="v" />
+        {padsData.map(pad => (
+          <Key key={pad.key} char={pad.key} />
+        ))}
       </section>
-    </DisplayPageInfoStyled>
+    </PageStyled>
   )
 }
 
@@ -35,7 +20,7 @@ function Key({ char }) {
   return <KeyStyled>{char}</KeyStyled>
 }
 
-const DisplayPageInfoStyled = styled.article`
+const PageStyled = styled.section`
   display: flex;
   flex-direction: column;
   height: 100%;
