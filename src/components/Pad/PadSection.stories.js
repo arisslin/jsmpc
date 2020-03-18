@@ -12,6 +12,7 @@ export const DefaultPadSection = () => (
   <div
     style={{
       display: 'grid',
+      gridTemplateAreas: "'pad-section'",
       width: 400,
       height: 400,
       padding: 10,
