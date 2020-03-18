@@ -1,16 +1,17 @@
-import React, { useState, useRef } from 'react'
+import React, { useRef, useState } from 'react'
+import { BrowserRouter as Router } from 'react-router-dom'
 import styled from 'styled-components/macro'
 import { padsData } from './common/padsData'
 import SamplePlayer from './common/SamplePlayer'
 import {
+  focusElementAfterLoad,
   stopPinchZooming,
   toLowerNoWhiteSpace,
   updateInArray,
-  focusElementAfterLoad,
 } from './common/utils'
-import PadSection from './components/Pad/PadSection'
 import Display from './components/Display'
-import Controls from './components/Controls'
+import DisplayNav from './components/DisplayNav'
+import PadSection from './components/Pad/PadSection'
 
 const samplePlayer = new SamplePlayer(padsData)
 
@@ -20,26 +21,28 @@ export default function App() {
   focusElementAfterLoad(appElement)
 
   return (
-    <AppStyled
-      ref={appElement}
-      onKeyDown={onKeyDown}
-      onKeyUp={onKeyUp}
-      onContextMenu={event => {
-        event.preventDefault()
-      }}
-      tabIndex="0"
-    >
-      <Display />
-      <Title>
-        jsMPC 2000 <span>Music Production Center</span>
-      </Title>
-      <Controls />
-      <PadSection
-        pads={pads}
-        handlePadTouchStart={handlePadTouchStart}
-        handlePadTouchEnd={handlePadTouchEnd}
-      />
-    </AppStyled>
+    <Router>
+      <AppStyled
+        ref={appElement}
+        onKeyDown={onKeyDown}
+        onKeyUp={onKeyUp}
+        onContextMenu={event => {
+          event.preventDefault()
+        }}
+        tabIndex="0"
+      >
+        <Display />
+        <Title>
+          jsMPC 2000 <span>Music Production Center</span>
+        </Title>
+        <DisplayNav />
+        <PadSection
+          pads={pads}
+          handlePadTouchStart={handlePadTouchStart}
+          handlePadTouchEnd={handlePadTouchEnd}
+        />
+      </AppStyled>
+    </Router>
   )
 
   function onKeyDown(event) {

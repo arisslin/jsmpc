@@ -1,13 +1,26 @@
 import React from 'react'
+import { BrowserRouter as Route, Switch } from 'react-router-dom'
 import styled from 'styled-components/macro'
+import DisplayPageInfo from './DisplayPages/DisplayPageInfo'
+import DisplayPageMain from './DisplayPages/DisplayPageMain'
+import DisplayPagePad from './DisplayPages/DisplayPagePad'
 
 export default function Display() {
   return (
     <DisplayStyled>
-      <p>Test</p>
-      <p>
-        <span className="display-invert">Test</span>
-      </p>
+      <Switch>
+        <Route exact path="/">
+          <DisplayPageMain />
+        </Route>
+
+        <Route path="/pad">
+          <DisplayPagePad />
+        </Route>
+
+        <Route path="/info">
+          <DisplayPageInfo />
+        </Route>
+      </Switch>
     </DisplayStyled>
   )
 }
