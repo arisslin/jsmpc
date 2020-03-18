@@ -1,17 +1,17 @@
-import React, { useState, useRef } from 'react'
+import React, { useRef, useState } from 'react'
+import { BrowserRouter as Router } from 'react-router-dom'
 import styled from 'styled-components/macro'
 import { padsData } from './common/padsData'
 import SamplePlayer from './common/SamplePlayer'
 import {
+  focusElementAfterLoad,
   stopPinchZooming,
   toLowerNoWhiteSpace,
   updateInArray,
-  focusElementAfterLoad,
 } from './common/utils'
-import PadSection from './components/Pad/PadSection'
 import Display from './components/Display'
 import DisplayNav from './components/DisplayNav'
-import { BrowserRouter as Router } from 'react-router-dom'
+import PadSection from './components/Pad/PadSection'
 
 const samplePlayer = new SamplePlayer(padsData)
 

@@ -1,9 +1,9 @@
 import React from 'react'
+import { BrowserRouter as Route, Switch } from 'react-router-dom'
 import styled from 'styled-components/macro'
+import DisplayPageInfo from './DisplayPages/DisplayPageInfo'
 import DisplayPageMain from './DisplayPages/DisplayPageMain'
 import DisplayPagePad from './DisplayPages/DisplayPagePad'
-import DisplayPageInfo from './DisplayPages/DisplayPageInfo'
-import { BrowserRouter as Route, Switch } from 'react-router-dom'
 
 export default function Display() {
   return (
