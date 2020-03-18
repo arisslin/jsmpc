@@ -8,15 +8,16 @@ export default {
   component: Display,
 }
 
-export const DefaultDisplay = () => {
+export const EmptyDisplay = () => {
   return (
     <Router>
       <GlobalStyles />
       <div
         style={{
           display: 'grid',
+          gridTemplateAreas: "'display'",
           width: 400,
-          height: 400,
+          height: 250,
           padding: 10,
         }}
       >
