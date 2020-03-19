@@ -1,14 +1,16 @@
 import React from 'react'
+import DisplayPageTitle from './DisplayPageTitle'
 import styled from 'styled-components/macro'
 
 export default function DisplayPagePad() {
   return (
     <DisplayPagePadStyled>
-      <h2>Pad Settings</h2>
+      <DisplayPageTitle title="Pad settings" />
     </DisplayPagePadStyled>
   )
 }
 
 const DisplayPagePadStyled = styled.article`
   display: flex;
+  flex-direction: column;
 `

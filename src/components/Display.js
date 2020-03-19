@@ -31,12 +31,8 @@ const DisplayStyled = styled.section`
   border-radius: 3px;
   background-color: var(--color-display);
   font-family: 'Press Start 2P', Arial;
-  padding: 6px;
+  padding: 10px;
   color: var(--color-display-font);
   letter-spacing: -1px;
-
-  .display-invert {
-    color: var(--color-display);
-    background-color: var(--color-display-font);
-  }
+  overflow-y: scroll;
 `
