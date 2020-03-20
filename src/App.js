@@ -54,6 +54,8 @@ export default function App() {
     const key = event.key
     samplePlayer.playSample(key)
     setPadIsTriggered(key, true)
+    const padName = getPadNameByKey(key)
+    setSelectedPad(padName)
   }
 
   function onKeyUp(event) {
@@ -66,14 +68,13 @@ export default function App() {
     const key = getKeyByName(name)
     samplePlayer.playSample(key)
     setPadIsTriggered(key, true)
-
     setSelectedPad(padName)
     //.. setSelectedSample(samplePlayer -> key)
   }
 
-  function handlePadTouchEnd(event) {
+  function handlePadTouchEnd(event, padName) {
     stopPinchZooming(event)
-    const name = getElementNameByEvent(event)
+    const name = toLowerNoWhiteSpace(padName)
     const key = getKeyByName(name)
     setPadIsTriggered(key, false)
   }
@@ -102,6 +103,16 @@ export default function App() {
       return acc
     }, '')
     return key
+  }
+
+  function getPadNameByKey(key) {
+    const padName = pads.reduce((acc, curr) => {
+      if (key === curr.key) {
+        acc = acc + curr.name
+      }
+      return acc
+    }, '')
+    return padName
   }
 }
 
