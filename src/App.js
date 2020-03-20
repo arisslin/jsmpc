@@ -56,6 +56,7 @@ export default function App() {
     setPadIsTriggered(key, true)
     const padName = getPadNameByKey(key)
     setSelectedPad(padName)
+    //.. setSelectedSample(samplePlayer -> key)
   }
 
   function onKeyUp(event) {
@@ -86,12 +87,6 @@ export default function App() {
       pad.isTriggered = triggerd
       const newPads = updateInArray(pads, pad, index)
       setPads(newPads)
-    }
-  }
-
-  function getElementNameByEvent(event) {
-    if (event.target.attributes.name) {
-      return event.target.attributes.name.value
     }
   }
 
