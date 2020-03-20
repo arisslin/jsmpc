@@ -14,6 +14,10 @@ export default class SamplePlayer {
     return this._pads
   }
 
+  getMasterVolume() {
+    return this.samplePlayers.volume.value
+  }
+
   // *** Public Methods ***
 
   playSample(key) {

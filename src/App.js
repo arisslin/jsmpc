@@ -32,7 +32,10 @@ export default function App() {
         }}
         tabIndex="0"
       >
-        <Display selectedPad={selectedPad} />
+        <Display
+          selectedPad={selectedPad}
+          masterVolume={samplePlayer.getMasterVolume()}
+        />
         <Title>
           jsMPC 2000 <span>Music Production Center</span>
         </Title>

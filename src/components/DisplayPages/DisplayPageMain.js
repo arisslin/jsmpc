@@ -2,10 +2,11 @@ import React from 'react'
 import DisplayPageTitle from './DisplayPageTitle'
 import styled from 'styled-components/macro'
 
-export default function DisplayPageMain() {
+export default function DisplayPageMain({ masterVolume }) {
   return (
     <DisplayPageMainStyled>
       <DisplayPageTitle title="Main" />
+      <p>Master Volume: {masterVolume} dB</p>
     </DisplayPageMainStyled>
   )
 }
