@@ -17,6 +17,7 @@ const samplePlayer = new SamplePlayer(padsData)
 
 export default function App() {
   const [pads, setPads] = useState(padsData)
+  const [selectedPad, setSelectedPad] = useState(null)
   const appElement = useRef(null)
   focusElementAfterLoad(appElement)
 
@@ -31,7 +32,7 @@ export default function App() {
         }}
         tabIndex="0"
       >
-        <Display />
+        <Display selectedPad={selectedPad} />
         <Title>
           jsMPC 2000 <span>Music Production Center</span>
         </Title>
@@ -60,12 +61,14 @@ export default function App() {
     setPadIsTriggered(key, false)
   }
 
-  function handlePadTouchStart(event) {
-    const name = getElementNameByEvent(event)
-
+  function handlePadTouchStart(padName) {
+    const name = toLowerNoWhiteSpace(padName)
     const key = getKeyByName(name)
     samplePlayer.playSample(key)
     setPadIsTriggered(key, true)
+
+    setSelectedPad(padName)
+    //.. setSelectedSample(samplePlayer -> key)
   }
 
   function handlePadTouchEnd(event) {

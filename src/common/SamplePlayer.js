@@ -28,9 +28,7 @@ export default class SamplePlayer {
   // *** Private methods ***
 
   _createPads(padsData) {
-    const pads = padsData.map(pad => {
-      return this._createPad(pad)
-    })
+    const pads = padsData.map(pad => this._createPad(pad))
     return pads
   }
 

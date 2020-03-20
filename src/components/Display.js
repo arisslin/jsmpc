@@ -5,7 +5,7 @@ import DisplayPageInfo from './DisplayPages/DisplayPageInfo'
 import DisplayPageMain from './DisplayPages/DisplayPageMain'
 import DisplayPagePad from './DisplayPages/DisplayPagePad'
 
-export default function Display() {
+export default function Display({ selectedPad }) {
   return (
     <DisplayStyled>
       <Switch>
@@ -14,7 +14,7 @@ export default function Display() {
         </Route>
 
         <Route path="/pad">
-          <DisplayPagePad />
+          <DisplayPagePad selectedPad={selectedPad} />
         </Route>
 
         <Route path="/info">
