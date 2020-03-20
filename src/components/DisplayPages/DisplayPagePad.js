@@ -14,5 +14,4 @@ export default function DisplayPagePad({ selectedPad }) {
 const DisplayPagePadStyled = styled.article`
   display: flex;
   flex-direction: column;
-  font-size: 0.8rem;
 `

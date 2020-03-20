@@ -31,6 +31,7 @@ const DisplayStyled = styled.section`
   border-radius: 3px;
   background-color: var(--color-display);
   font-family: 'Press Start 2P', Arial;
+  font-size: 0.8rem;
   padding: 10px;
   color: var(--color-display-font);
   letter-spacing: -1px;
