@@ -5,12 +5,12 @@ import DisplayPageInfo from './DisplayPages/DisplayPageInfo'
 import DisplayPageMain from './DisplayPages/DisplayPageMain'
 import DisplayPagePad from './DisplayPages/DisplayPagePad'
 
-export default function Display({ selectedPad, masterVolume }) {
+export default function Display({ selectedPad }) {
   return (
     <DisplayStyled>
       <Switch>
         <Route exact path="/">
-          <DisplayPageMain masterVolume={masterVolume} />
+          <DisplayPageMain />
         </Route>
 
         <Route path="/pad">

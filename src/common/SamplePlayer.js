@@ -18,6 +18,12 @@ export default class SamplePlayer {
     return this.samplePlayers.volume.value
   }
 
+  // *** setter ***
+
+  setMasterVolume(value) {
+    this.samplePlayers.volume.value = value
+  }
+
   // *** Public Methods ***
 
   playSample(key) {

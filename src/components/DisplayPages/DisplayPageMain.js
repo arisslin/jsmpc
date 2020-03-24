@@ -6,7 +6,9 @@ export default function DisplayPageMain({ masterVolume }) {
   return (
     <DisplayPageMainStyled>
       <DisplayPageTitle title="Main" />
-      <p>Master Volume: {masterVolume} dB</p>
+      <p>
+        Master Volume: <input type="number" /> dB
+      </p>
     </DisplayPageMainStyled>
   )
 }

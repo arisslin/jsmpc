@@ -6,8 +6,7 @@ export default function DisplayPagePad({ selectedPad }) {
   return (
     <DisplayPagePadStyled>
       <DisplayPageTitle title="Pad settings" />
-      <p>{selectedPad}</p>
-      <p>Volume: </p>
+      <p>{selectedPad || 'Pad 1'}</p>
     </DisplayPagePadStyled>
   )
 }
