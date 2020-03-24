@@ -16,6 +16,9 @@ import PadSection from './components/Pad/PadSection'
 const samplePlayer = new SamplePlayer(padsData)
 
 export default function App() {
+  const [masterVolume, setMasterVolume] = useState(
+    samplePlayer.getMasterVolume()
+  )
   const [pads, setPads] = useState(padsData)
   const [selectedPad, setSelectedPad] = useState(null)
   const appElement = useRef(null)
@@ -32,10 +35,7 @@ export default function App() {
         }}
         tabIndex="0"
       >
-        <Display
-          selectedPad={selectedPad}
-          masterVolume={samplePlayer.getMasterVolume()}
-        />
+        <Display selectedPad={selectedPad} masterVolume={masterVolume} />
         <Title>
           jsMPC 2000 <span>Music Production Center</span>
         </Title>
