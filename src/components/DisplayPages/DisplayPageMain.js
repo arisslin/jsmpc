@@ -6,17 +6,17 @@ export default function DisplayPageMain({ masterVolume, onChangeInputVolume }) {
   return (
     <DisplayPageMainStyled>
       <DisplayPageTitle title="Main" />
-      <p>
-        Master Volume: {masterVolume}dB
+      <label htmlFor="master-volume">
+        Master Volume: <span>{masterVolume}dB</span>
         <input
           name="master-volume"
           type="range"
-          min="-100"
+          min="-80"
           max="6"
           defaultValue={masterVolume}
           onChange={onChangeInputVolume}
         />
-      </p>
+      </label>
     </DisplayPageMainStyled>
   )
 }
@@ -24,4 +24,12 @@ export default function DisplayPageMain({ masterVolume, onChangeInputVolume }) {
 const DisplayPageMainStyled = styled.article`
   display: flex;
   flex-direction: column;
+
+  label[for='master-volume'] {
+    span {
+      display: inline-block;
+      width: 58px;
+      text-align: right;
+    }
+  }
 `
