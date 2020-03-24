@@ -35,7 +35,11 @@ export default function App() {
         }}
         tabIndex="0"
       >
-        <Display selectedPad={selectedPad} masterVolume={masterVolume} />
+        <Display
+          selectedPad={selectedPad}
+          masterVolume={masterVolume}
+          adjustMasterVolume={adjustMasterVolume}
+        />
         <Title>
           jsMPC 2000 <span>Music Production Center</span>
         </Title>
@@ -48,6 +52,12 @@ export default function App() {
       </AppStyled>
     </Router>
   )
+
+  function adjustMasterVolume(event) {
+    const volumeInDB = event.target.value
+    setMasterVolume(volumeInDB)
+    samplePlayer.setMasterVolume(volumeInDB)
+  }
 
   function onKeyDown(event) {
     if (event.repeat) {
