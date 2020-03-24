@@ -54,7 +54,8 @@ export default function App() {
   )
 
   function adjustMasterVolume(event) {
-    const volumeInDB = event.target.value
+    const volumeInDB = event.target.value > 6 ? 6 : event.target.value
+
     setMasterVolume(volumeInDB)
     samplePlayer.setMasterVolume(volumeInDB)
   }

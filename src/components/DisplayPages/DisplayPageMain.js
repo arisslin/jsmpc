@@ -7,16 +7,15 @@ export default function DisplayPageMain({ masterVolume, onChangeInputVolume }) {
     <DisplayPageMainStyled>
       <DisplayPageTitle title="Main" />
       <p>
-        Master Volume:{' '}
+        Master Volume: {masterVolume}dB
         <input
           name="master-volume"
-          type="number"
+          type="range"
           min="-100"
           max="6"
           defaultValue={masterVolume}
-          onInput={onChangeInputVolume}
+          onChange={onChangeInputVolume}
         />
-        dB
       </p>
     </DisplayPageMainStyled>
   )
