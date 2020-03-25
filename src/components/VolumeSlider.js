@@ -1,10 +1,14 @@
 import React from 'react'
 import styled from 'styled-components/macro'
 
-export default function Slider({ masterVolume, onChangeInputVolume }) {
+export default function VolumeSlider({
+  label,
+  masterVolume,
+  onChangeInputVolume,
+}) {
   return (
-    <SliderStyled htmlFor="volume-slider">
-      Master Volume: <span>{masterVolume}dB</span>
+    <VolumeSliderStyled htmlFor="volume-slider">
+      {label}: <span>{masterVolume}dB</span>
       <input
         name="volume-slider"
         type="range"
@@ -13,11 +17,11 @@ export default function Slider({ masterVolume, onChangeInputVolume }) {
         defaultValue={masterVolume}
         onChange={onChangeInputVolume}
       />
-    </SliderStyled>
+    </VolumeSliderStyled>
   )
 }
 
-const SliderStyled = styled.label`
+const VolumeSliderStyled = styled.label`
   display: block;
 
   span {

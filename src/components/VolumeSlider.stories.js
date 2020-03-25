@@ -1,13 +1,13 @@
 import React, { useState } from 'react'
 import GlobalStyles from '../common/GlobalStyles'
-import Slider from './Slider'
+import VolumeSlider from './VolumeSlider'
 
 export default {
   title: 'Slider',
-  component: Slider,
+  component: VolumeSlider,
 }
 
-export const SliderDefault = () => {
+export const VolumeSliderDefault = () => {
   const [masterVolume, setMasterVolume] = useState(0)
 
   return (
@@ -24,7 +24,8 @@ export const SliderDefault = () => {
       }}
     >
       <GlobalStyles />
-      <Slider
+      <VolumeSlider
+        label="Master Volume"
         masterVolume={masterVolume}
         onChangeInputVolume={adjustMasterVolume}
       />
