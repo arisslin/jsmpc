@@ -1,5 +1,12 @@
 import React from 'react'
 import styled from 'styled-components/macro'
+import PropTypes from 'prop-types'
+
+VolumeSlider.propTypes = {
+  label: PropTypes.string.isRequired,
+  masterVolume: PropTypes.number.isRequired,
+  onChangeInputVolume: PropTypes.func.isRequired,
+}
 
 export default function VolumeSlider({
   label,

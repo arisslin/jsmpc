@@ -1,5 +1,10 @@
 import React from 'react'
 import styled from 'styled-components/macro'
+import PropTypes from 'prop-types'
+
+DisplayPageTitle.propTypes = {
+  title: PropTypes.string.isRequired,
+}
 
 export default function DisplayPageTitle({ title }) {
   return (

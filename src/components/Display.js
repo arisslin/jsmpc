@@ -5,6 +5,14 @@ import DisplayPageInfo from './DisplayPages/DisplayPageInfo'
 import DisplayPageMain from './DisplayPages/DisplayPageMain'
 import DisplayPagePad from './DisplayPages/DisplayPagePad'
 
+import PropTypes from 'prop-types'
+
+Display.propTypes = {
+  selectedPad: PropTypes.string,
+  masterVolume: PropTypes.number.isRequired,
+  adjustMasterVolume: PropTypes.func.isRequired,
+}
+
 export default function Display({
   selectedPad,
   masterVolume,
