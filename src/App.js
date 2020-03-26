@@ -70,7 +70,6 @@ export default function App() {
     setPadIsTriggered(key, true)
     const padName = getPadNameByKey(key)
     setSelectedPad(padName)
-    //.. setSelectedSample(samplePlayer -> key)
   }
 
   function onKeyUp(event) {
@@ -84,7 +83,6 @@ export default function App() {
     samplePlayer.playSample(key)
     setPadIsTriggered(key, true)
     setSelectedPad(padName)
-    //.. setSelectedSample(samplePlayer -> key)
   }
 
   function handlePadTouchEnd(event, padName) {
