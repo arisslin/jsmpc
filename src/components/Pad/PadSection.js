@@ -24,7 +24,7 @@ export default function PadSection({
       return (
         <Pad
           key={key}
-          name={pad.name}
+          padName={pad.name}
           onTouchStart={handlePadTouchStart}
           onTouchEnd={handlePadTouchEnd}
           isTriggered={pad.isTriggered}

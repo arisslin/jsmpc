@@ -1,5 +1,10 @@
 import React from 'react'
 import styled from 'styled-components/macro'
+import PropTypes from 'prop-types'
+
+DisplayPageTitle.propTypes = {
+  title: PropTypes.string.isRequired,
+}
 
 export default function DisplayPageTitle({ title }) {
   return (
@@ -13,7 +18,7 @@ export default function DisplayPageTitle({ title }) {
 const TitleStyled = styled.div`
   h2 {
     margin: 0;
-    font-size: 1.2rem;
+    font-size: 1rem;
   }
 
   hr {

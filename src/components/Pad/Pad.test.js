@@ -18,7 +18,7 @@ afterEach(() => {
 describe('<Pad />', () => {
   it('renders with name', () => {
     act(() => {
-      render(<Pad name="Pad 1" />, container)
+      render(<Pad padName="Pad 1" />, container)
     })
     expect(container.textContent).toBe('Pad 1')
   })

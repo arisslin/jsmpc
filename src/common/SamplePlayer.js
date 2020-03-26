@@ -14,6 +14,16 @@ export default class SamplePlayer {
     return this._pads
   }
 
+  getMasterVolume() {
+    return this.samplePlayers.volume.value
+  }
+
+  // *** setter ***
+
+  setMasterVolume(value) {
+    this.samplePlayers.volume.value = value
+  }
+
   // *** Public Methods ***
 
   playSample(key) {
@@ -28,9 +38,7 @@ export default class SamplePlayer {
   // *** Private methods ***
 
   _createPads(padsData) {
-    const pads = padsData.map(pad => {
-      return this._createPad(pad)
-    })
+    const pads = padsData.map(pad => this._createPad(pad))
     return pads
   }
 

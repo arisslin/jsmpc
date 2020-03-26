@@ -16,7 +16,11 @@ import PadSection from './components/Pad/PadSection'
 const samplePlayer = new SamplePlayer(padsData)
 
 export default function App() {
+  const [masterVolume, setMasterVolume] = useState(
+    samplePlayer.getMasterVolume()
+  )
   const [pads, setPads] = useState(padsData)
+  const [selectedPad, setSelectedPad] = useState(null)
   const appElement = useRef(null)
   focusElementAfterLoad(appElement)
 
@@ -31,7 +35,11 @@ export default function App() {
         }}
         tabIndex="0"
       >
-        <Display />
+        <Display
+          selectedPad={selectedPad}
+          masterVolume={masterVolume}
+          adjustMasterVolume={adjustMasterVolume}
+        />
         <Title>
           jsMPC 2000 <span>Music Production Center</span>
         </Title>
@@ -45,6 +53,13 @@ export default function App() {
     </Router>
   )
 
+  function adjustMasterVolume(event) {
+    const volumeInDB = event.target.value > 6 ? 6 : event.target.value
+
+    setMasterVolume(volumeInDB)
+    samplePlayer.setMasterVolume(volumeInDB)
+  }
+
   function onKeyDown(event) {
     if (event.repeat) {
       return
@@ -53,6 +68,8 @@ export default function App() {
     const key = event.key
     samplePlayer.playSample(key)
     setPadIsTriggered(key, true)
+    const padName = getPadNameByKey(key)
+    setSelectedPad(padName)
   }
 
   function onKeyUp(event) {
@@ -60,17 +77,17 @@ export default function App() {
     setPadIsTriggered(key, false)
   }
 
-  function handlePadTouchStart(event) {
-    const name = getElementNameByEvent(event)
-
+  function handlePadTouchStart(padName) {
+    const name = toLowerNoWhiteSpace(padName)
     const key = getKeyByName(name)
     samplePlayer.playSample(key)
     setPadIsTriggered(key, true)
+    setSelectedPad(padName)
   }
 
-  function handlePadTouchEnd(event) {
+  function handlePadTouchEnd(event, padName) {
     stopPinchZooming(event)
-    const name = getElementNameByEvent(event)
+    const name = toLowerNoWhiteSpace(padName)
     const key = getKeyByName(name)
     setPadIsTriggered(key, false)
   }
@@ -85,12 +102,6 @@ export default function App() {
     }
   }
 
-  function getElementNameByEvent(event) {
-    if (event.target.attributes.name) {
-      return event.target.attributes.name.value
-    }
-  }
-
   function getKeyByName(name) {
     const key = pads.reduce((acc, cur) => {
       if (name === toLowerNoWhiteSpace(cur.name)) {
@@ -99,6 +110,16 @@ export default function App() {
       return acc
     }, '')
     return key
+  }
+
+  function getPadNameByKey(key) {
+    const padName = pads.reduce((acc, curr) => {
+      if (key === curr.key) {
+        acc = acc + curr.name
+      }
+      return acc
+    }, '')
+    return padName
   }
 }
 

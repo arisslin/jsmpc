@@ -1,11 +1,23 @@
 import React from 'react'
 import DisplayPageTitle from './DisplayPageTitle'
 import styled from 'styled-components/macro'
+import VolumeSlider from '../../components/VolumeSlider'
+import PropTypes from 'prop-types'
 
-export default function DisplayPageMain() {
+DisplayPageMain.propTypes = {
+  masterVolume: PropTypes.number.isRequired,
+  onChangeInputVolume: PropTypes.func.isRequired,
+}
+
+export default function DisplayPageMain({ masterVolume, onChangeInputVolume }) {
   return (
     <DisplayPageMainStyled>
       <DisplayPageTitle title="Main" />
+      <VolumeSlider
+        label="Master Volume"
+        masterVolume={masterVolume}
+        onChangeInputVolume={onChangeInputVolume}
+      />
     </DisplayPageMainStyled>
   )
 }

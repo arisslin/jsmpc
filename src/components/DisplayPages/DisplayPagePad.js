@@ -1,11 +1,17 @@
 import React from 'react'
 import DisplayPageTitle from './DisplayPageTitle'
 import styled from 'styled-components/macro'
+import PropTypes from 'prop-types'
 
-export default function DisplayPagePad() {
+DisplayPagePad.propTypes = {
+  selectedPad: PropTypes.string,
+}
+
+export default function DisplayPagePad({ selectedPad }) {
   return (
     <DisplayPagePadStyled>
       <DisplayPageTitle title="Pad settings" />
+      <p>{selectedPad || 'Pad 1'}</p>
     </DisplayPagePadStyled>
   )
 }

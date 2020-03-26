@@ -5,16 +5,31 @@ import DisplayPageInfo from './DisplayPages/DisplayPageInfo'
 import DisplayPageMain from './DisplayPages/DisplayPageMain'
 import DisplayPagePad from './DisplayPages/DisplayPagePad'
 
-export default function Display() {
+import PropTypes from 'prop-types'
+
+Display.propTypes = {
+  selectedPad: PropTypes.string,
+  masterVolume: PropTypes.number.isRequired,
+  adjustMasterVolume: PropTypes.func.isRequired,
+}
+
+export default function Display({
+  selectedPad,
+  masterVolume,
+  adjustMasterVolume,
+}) {
   return (
     <DisplayStyled>
       <Switch>
         <Route exact path="/">
-          <DisplayPageMain />
+          <DisplayPageMain
+            masterVolume={masterVolume}
+            onChangeInputVolume={adjustMasterVolume}
+          />
         </Route>
 
         <Route path="/pad">
-          <DisplayPagePad />
+          <DisplayPagePad selectedPad={selectedPad} />
         </Route>
 
         <Route path="/info">
@@ -31,6 +46,7 @@ const DisplayStyled = styled.section`
   border-radius: 3px;
   background-color: var(--color-display);
   font-family: 'Press Start 2P', Arial;
+  font-size: 0.8rem;
   padding: 10px;
   color: var(--color-display-font);
   letter-spacing: -1px;
