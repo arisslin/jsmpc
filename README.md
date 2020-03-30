@@ -7,7 +7,7 @@ It helps you to train you finger drumming skills ony your mobile device or lapto
 
 You can play the apps sound pads by multitouch or by keyboard.
 
-[Click here](ttps://jsmpc-drumcomputer.firebaseapp.com) the use the app's preview online.
+[Click here](https://jsmpc-drumcomputer.firebaseapp.com) the use the app's preview online.
 
 ## Tech stack
 
