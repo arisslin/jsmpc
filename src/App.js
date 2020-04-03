@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react'
+import React, { useRef } from 'react'
 import { BrowserRouter as Router } from 'react-router-dom'
 import styled from 'styled-components/macro'
 import { padsData } from './common/padsData'
@@ -8,13 +8,12 @@ import Display from './components/Display'
 import DisplayNav from './components/DisplayNav'
 import PadSection from './components/Pad/PadSection'
 import usePads from './hooks/usePads'
+import useVolume from './hooks/useVolume'
 
 const samplePlayer = new SamplePlayer(padsData)
 
 export default function App() {
-  const [masterVolume, setMasterVolume] = useState(
-    samplePlayer.getMasterVolume()
-  )
+  const [masterVolume, adjustMasterVolume] = useVolume(samplePlayer)
   const {
     pads,
     selectedPad,
@@ -54,13 +53,6 @@ export default function App() {
       </AppStyled>
     </Router>
   )
-
-  function adjustMasterVolume(event) {
-    const targetValue = Number(event.target.value)
-    const volumeInDB = targetValue > 6 ? 6 : targetValue
-    setMasterVolume(volumeInDB)
-    samplePlayer.setMasterVolume(volumeInDB)
-  }
 }
 
 const AppStyled = styled.div`
