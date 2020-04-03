@@ -66,7 +66,6 @@ export default function App() {
     if (event.repeat) {
       return
     }
-
     const key = event.key
     samplePlayer.playSample(key)
     setPadIsTriggered(key, true)

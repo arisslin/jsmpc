@@ -17,6 +17,7 @@ export default function Pad({
 }) {
   return (
     <PadStyled
+      className={isTriggered ? 'triggered' : ''}
       onTouchStart={() => onTouchStart(padName)}
       onTouchEnd={event => onTouchEnd(event, padName)}
       onMouseDown={() => onTouchStart(padName)}
@@ -31,19 +32,18 @@ export default function Pad({
 const PadStyled = styled.div`
   position: relative;
   border: 2px solid;
-  border-color: ${props =>
-    props.isTriggered
-      ? 'var(--color-pad-border-triggered)'
-      : 'var(--color-dark)'};
+  border-color: var(--color-dark);
   border-radius: 3px;
-  background-color: ${props =>
-    props.isTriggered ? 'var(--color-pad-triggered)' : 'var(--color-pad)'};
-  box-shadow: ${props =>
-    props.isTriggered
-      ? 'var(--element-triggered-shadow)'
-      : 'var(--element-box-shadow)'};
+  background-color: var(--color-pad);
+  box-shadow: var(--element-box-shadow);
   cursor: pointer;
   user-select: none;
+
+  &.triggered {
+    background-color: var(--color-pad-triggered);
+    border-color: var(--color-pad-border-triggered);
+    box-shadow: var(--element-triggered-shadow);
+  }
 
   span {
     position: absolute;
