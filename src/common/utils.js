@@ -17,3 +17,12 @@ export function stopPinchZooming(event) {
   // Stops the browser zooming when double tab on mobile devices
   event.preventDefault()
 }
+
+export function getPadNameByKey(pads, key) {
+  return pads.reduce((acc, curr) => {
+    if (key === curr.key) {
+      acc = acc + curr.name
+    }
+    return acc
+  }, '')
+}
