@@ -1,13 +1,10 @@
 {
   "name": "jsmpc",
   "version": "0.1.7",
+  "author": "Andreas Rissling",
   "private": true,
   "homepage": "https://github.com/",
   "dependencies": {
-    "@testing-library/jest-dom": "4.2.4",
-    "@testing-library/react": "9.4.1",
-    "@testing-library/user-event": "7.2.1",
-    "prop-types": "15.7.2",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
     "react-router-dom": "5.1.2",
@@ -41,6 +38,10 @@
     ]
   },
   "devDependencies": {
+    "@testing-library/jest-dom": "4.2.4",
+    "@testing-library/react": "9.4.1",
+    "@testing-library/user-event": "7.2.1",
+    "prop-types": "15.7.2",
     "@babel/core": "7.8.7",
     "@storybook/addon-actions": "5.3.14",
     "@storybook/addon-links": "5.3.14",

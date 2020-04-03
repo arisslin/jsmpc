@@ -42,4 +42,5 @@ export default createGlobalStyle`
   .pr-1 {
     padding-right: 1rem;
   }
+
 `

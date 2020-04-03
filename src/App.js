@@ -1,26 +1,27 @@
-import React, { useRef, useState } from 'react'
+import React, { useRef } from 'react'
 import { BrowserRouter as Router } from 'react-router-dom'
 import styled from 'styled-components/macro'
 import { padsData } from './common/padsData'
 import SamplePlayer from './common/SamplePlayer'
-import {
-  focusElementAfterLoad,
-  stopPinchZooming,
-  toLowerNoWhiteSpace,
-  updateInArray,
-} from './common/utils'
+import { focusElementAfterLoad } from './common/utils'
 import Display from './components/Display'
 import DisplayNav from './components/DisplayNav'
 import PadSection from './components/Pad/PadSection'
+import usePads from './hooks/usePads'
+import useVolume from './hooks/useVolume'
 
 const samplePlayer = new SamplePlayer(padsData)
 
 export default function App() {
-  const [masterVolume, setMasterVolume] = useState(
-    samplePlayer.getMasterVolume()
-  )
-  const [pads, setPads] = useState(padsData)
-  const [selectedPad, setSelectedPad] = useState(null)
+  const [masterVolume, adjustMasterVolume] = useVolume(samplePlayer)
+  const {
+    pads,
+    selectedPad,
+    handleKeyDown,
+    handleKeyUp,
+    handlePadTouchStart,
+    handlePadTouchEnd,
+  } = usePads(samplePlayer)
   const appElement = useRef(null)
   focusElementAfterLoad(appElement)
 
@@ -28,8 +29,8 @@ export default function App() {
     <Router>
       <AppStyled
         ref={appElement}
-        onKeyDown={onKeyDown}
-        onKeyUp={onKeyUp}
+        onKeyDown={handleKeyDown}
+        onKeyUp={handleKeyUp}
         onContextMenu={event => {
           event.preventDefault()
         }}
@@ -52,75 +53,6 @@ export default function App() {
       </AppStyled>
     </Router>
   )
-
-  function adjustMasterVolume(event) {
-    const volumeInDB = event.target.value > 6 ? 6 : event.target.value
-
-    setMasterVolume(volumeInDB)
-    samplePlayer.setMasterVolume(volumeInDB)
-  }
-
-  function onKeyDown(event) {
-    if (event.repeat) {
-      return
-    }
-
-    const key = event.key
-    samplePlayer.playSample(key)
-    setPadIsTriggered(key, true)
-    const padName = getPadNameByKey(key)
-    setSelectedPad(padName)
-  }
-
-  function onKeyUp(event) {
-    const key = event.key
-    setPadIsTriggered(key, false)
-  }
-
-  function handlePadTouchStart(padName) {
-    const name = toLowerNoWhiteSpace(padName)
-    const key = getKeyByName(name)
-    samplePlayer.playSample(key)
-    setPadIsTriggered(key, true)
-    setSelectedPad(padName)
-  }
-
-  function handlePadTouchEnd(event, padName) {
-    stopPinchZooming(event)
-    const name = toLowerNoWhiteSpace(padName)
-    const key = getKeyByName(name)
-    setPadIsTriggered(key, false)
-  }
-
-  function setPadIsTriggered(key, triggerd) {
-    const index = pads.findIndex(pad => pad.key === key)
-    if (index > -1) {
-      const pad = { ...pads[index] }
-      pad.isTriggered = triggerd
-      const newPads = updateInArray(pads, pad, index)
-      setPads(newPads)
-    }
-  }
-
-  function getKeyByName(name) {
-    const key = pads.reduce((acc, cur) => {
-      if (name === toLowerNoWhiteSpace(cur.name)) {
-        acc = acc + cur.key
-      }
-      return acc
-    }, '')
-    return key
-  }
-
-  function getPadNameByKey(key) {
-    const padName = pads.reduce((acc, curr) => {
-      if (key === curr.key) {
-        acc = acc + curr.name
-      }
-      return acc
-    }, '')
-    return padName
-  }
 }
 
 const AppStyled = styled.div`
