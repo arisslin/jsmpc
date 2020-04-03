@@ -4,6 +4,7 @@ import styled from 'styled-components/macro'
 import { padsData } from './common/padsData'
 import SamplePlayer from './common/SamplePlayer'
 import {
+  getKeyByName,
   getPadNameByKey,
   focusElementAfterLoad,
   stopPinchZooming,
@@ -80,7 +81,7 @@ export default function App() {
 
   function handlePadTouchStart(padName) {
     const name = toLowerNoWhiteSpace(padName)
-    const key = getKeyByName(name)
+    const key = getKeyByName(pads, name)
     samplePlayer.playSample(key)
     setPadIsTriggered(key, true)
     setSelectedPad(padName)
@@ -89,7 +90,7 @@ export default function App() {
   function handlePadTouchEnd(event, padName) {
     stopPinchZooming(event)
     const name = toLowerNoWhiteSpace(padName)
-    const key = getKeyByName(name)
+    const key = getKeyByName(pads, name)
     setPadIsTriggered(key, false)
   }
 
@@ -101,15 +102,6 @@ export default function App() {
       const newPads = updateInArray(pads, pad, index)
       setPads(newPads)
     }
-  }
-
-  function getKeyByName(name) {
-    return pads.reduce((acc, cur) => {
-      if (name === toLowerNoWhiteSpace(cur.name)) {
-        acc = acc + cur.key
-      }
-      return acc
-    }, '')
   }
 }
 

@@ -26,3 +26,12 @@ export function getPadNameByKey(pads, key) {
     return acc
   }, '')
 }
+
+export function getKeyByName(pads, name) {
+  return pads.reduce((acc, cur) => {
+    if (name === toLowerNoWhiteSpace(cur.name)) {
+      acc = acc + cur.key
+    }
+    return acc
+  }, '')
+}
