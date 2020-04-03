@@ -16,10 +16,15 @@ export default function DisplayPageMain({ masterVolume, onChangeInputVolume }) {
       <VolumeSlider
         label="Master Volume"
         masterVolume={masterVolume}
-        onChangeInputVolume={onChangeInputVolume}
+        onChangeInputVolume={handleVolumeChange}
       />
     </DisplayPageMainStyled>
   )
+
+  function handleVolumeChange(event) {
+    const targetValue = Number(event.target.value)
+    onChangeInputVolume(targetValue)
+  }
 }
 
 const DisplayPageMainStyled = styled.article`

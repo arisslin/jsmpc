@@ -5,21 +5,18 @@ export const focusElementAfterLoad = element => {
 }
 
 export function getKeyByName(pads, name) {
-  return pads.reduce((acc, cur) => {
-    if (name === toLowerNoWhiteSpace(cur.name)) {
-      acc = acc + cur.key
-    }
-    return acc
-  }, '')
+  return pads.reduce(
+    (acc, cur) =>
+      name === toLowerNoWhiteSpace(cur.name) ? acc + cur.key : acc,
+    ''
+  )
 }
 
 export function getPadNameByKey(pads, key) {
-  return pads.reduce((acc, curr) => {
-    if (key === curr.key) {
-      acc = acc + curr.name
-    }
-    return acc
-  }, '')
+  return pads.reduce(
+    (acc, curr) => (key === curr.key ? acc + curr.name : acc),
+    ''
+  )
 }
 
 export function stopPinchZooming(event) {

@@ -1,11 +1,11 @@
 import { useState } from 'react'
+const MAX_VOLUME = 6
 
 export default function useVolume(player) {
   const [volume, setVolume] = useState(player.getMasterVolume())
 
-  function adjustVolume(event) {
-    const targetValue = Number(event.target.value)
-    const volumeInDB = targetValue > 6 ? 6 : targetValue
+  function adjustVolume(newValue) {
+    const volumeInDB = newValue > MAX_VOLUME ? MAX_VOLUME : newValue
     setVolume(volumeInDB)
     player.setMasterVolume(volumeInDB)
   }

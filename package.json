@@ -13,10 +13,6 @@
     "tone": "13.8.25"
   },
   "scripts": {
-    "@testing-library/jest-dom": "4.2.4",
-    "@testing-library/react": "9.4.1",
-    "@testing-library/user-event": "7.2.1",
-    "prop-types": "15.7.2",
     "predeploy": "npm run build",
     "deploy": "npm run build && firebase deploy --only hosting",
     "start": "react-scripts start",
@@ -42,6 +38,10 @@
     ]
   },
   "devDependencies": {
+    "@testing-library/jest-dom": "4.2.4",
+    "@testing-library/react": "9.4.1",
+    "@testing-library/user-event": "7.2.1",
+    "prop-types": "15.7.2",
     "@babel/core": "7.8.7",
     "@storybook/addon-actions": "5.3.14",
     "@storybook/addon-links": "5.3.14",
