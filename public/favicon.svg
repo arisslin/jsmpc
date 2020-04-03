@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   id="svg8"
+   version="1.1"
+   viewBox="0 0 8.4666667 8.466667"
+   height="32"
+   width="32">
+  <defs
+     id="defs2" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     id="layer1">
+    <rect
+       rx="0.52916664"
+       ry="0.52916664"
+       y="0.14261051"
+       x="0.14261051"
+       height="8.1814461"
+       width="8.1814461"
+       id="rect24"
+       style="fill:#ececec;stroke:#32373a;stroke-width:0.285221;stroke-linejoin:round" />
+    <text
+       id="text28"
+       y="4.8544497"
+       x="8.0246429"
+       style="font-style:normal;font-weight:normal;font-size:3.16748999999999992px;line-height:0.95;font-family:sans-serif;fill:#32373a;fill-opacity:1;stroke:none;stroke-width:0.264582;"
+       xml:space="preserve"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82222000000000017px;font-family:'Arial Black';-inkscape-font-specification:'Arial Black, ';text-align:end;text-anchor:end;fill:#32373a;fill-opacity:1;stroke-width:0.264582;"
+         y="4.8544497"
+         x="8.0246429"
+         id="tspan26">js</tspan><tspan
+         id="tspan30"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.82222000000000017px;font-family:'Arial Black';-inkscape-font-specification:'Arial Black, ';text-align:end;text-anchor:end;fill:#32373a;fill-opacity:1;stroke-width:0.264582;"
+         y="7.8635654"
+         x="8.0246429">MPC</tspan></text>
+  </g>
+</svg>
